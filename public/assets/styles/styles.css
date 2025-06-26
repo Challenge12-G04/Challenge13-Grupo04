@@ -157,31 +157,6 @@ body {
     border-radius: 0.5rem;
 }
 
-
-.VIDEOSTURORIAL {
-    display: flex;
-    flex-direction: row;
-    background-color: hsl(197, 78%, 82%);
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
-}
-.videos-contenido {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: #efeff7; /* Color del texto */
-}
-
-.video {
-    margin-right: 40px;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    background-color: hwb(212 19% 15%);
-    border-radius: 0.5rem; /* Bordes redondeados */
-}
-
 /* RESPONSIVE: MÓVILES */
 @media (max-width: 768px) {
     .menu-toggle {
