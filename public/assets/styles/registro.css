@@ -1,0 +1,79 @@
+.create-account-section {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.login-container {
+  background-color: #fff;
+  padding: 2.5rem;
+  border-radius: 0.8rem;
+  text-align: center;
+  width: 100%;
+  max-width: 450px;
+  margin: 2rem 1rem;
+}
+
+.login-container h2 {
+  font-family: "Anton", sans-serif;
+  font-size: 2.8rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.create-account-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #555;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1.1em;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  border-color: rgb(172, 229, 160);
+  outline: none;
+  box-shadow: 0 0 0.5rem rgba(172, 229, 160, 0.5);
+}
+
+.register-button {
+  background-color: rgb(96, 125, 139);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.register-button:hover {
+  background-color: rgb(69, 89, 100);
+}
