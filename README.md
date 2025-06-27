@@ -1,7 +1,9 @@
-Nombre del proyecto y descripción:
+<h1>Nombre del proyecto y descripción:</h1>
+
 JUNTO es una plataforma innovadora creada para asistir a los adolescentes en el manejo de la ansiedad digital, que surge del uso excesivo de las redes sociales y la presión de estar constantemente conectados. A través del uso de inteligencia artificial, la plataforma analiza las emociones mediante reconocimiento facial y análisis de texto, proporcionando soluciones a medida como ejercicios de mindfulness, respiración guiada y actividades para la desconexión digital. El objetivo de JUNTO no es solo mitigar el estrés tecnológico, sino también promover hábitos digitales saludables y fomentar conexiones emocionales significativas.
 
-Objetivo del landing page:
+<h3>Objetivo del landing page:</h3>
+
 El propósito de la landing page de JUNTO es presentar una plataforma diseñada para apoyar a los adolescentes en la gestión de la ansiedad digital. La interfaz de usuario ha sido desarrollada con un enfoque en la claridad visual, la accesibilidad emocional y una navegación sencilla, considerando las necesidades cognitivas y emocionales de su público objetivo. Busca establecer una conexión emocional inmediata a través de un título atractivo, un mensaje claro y un llamado a la acción conversacional.
 
 Público objetivo:
