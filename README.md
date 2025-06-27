@@ -13,7 +13,7 @@ Integrantes del equipo:
 -Torres Honores, Pimentel, Francesco
 -Vasquez Yabar, Gonzalo Alonso
 -Garay Obregón, Isaac Bequer
-´-Pariona Chacca, Angel Jose
+-Pariona Chacca, Angel Jose
 
 Características clave :
 Navegación Intuitiva: Se garantiza un fácil acceso a todas las secciones del sitio web. En la versión de escritorio, un menú superior permanece fijo para facilitar la navegación. Para la versión móvil, el acceso principal se encuentra en un menú superior, con la posibilidad de una barra inferior para accesos rápidos
