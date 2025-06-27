@@ -6,10 +6,10 @@ JUNTO es una plataforma innovadora creada para asistir a los adolescentes en el 
 
 El propósito de la landing page de JUNTO es presentar una plataforma diseñada para apoyar a los adolescentes en la gestión de la ansiedad digital. La interfaz de usuario ha sido desarrollada con un enfoque en la claridad visual, la accesibilidad emocional y una navegación sencilla, considerando las necesidades cognitivas y emocionales de su público objetivo. Busca establecer una conexión emocional inmediata a través de un título atractivo, un mensaje claro y un llamado a la acción conversacional.
 
-Público objetivo:
+<h3>Público objetivo:</h3>
 Adolecentes con ansiedad, Instructores de deportes
 
-Integrantes del equipo:
+<h3>Integrantes del equipo:</h3>
 -Medina Mayo, Sebastian Jose
 -Salazar Gutiérrez, Darwin Karl
 -Torres Honores, Pimentel, Francesco
@@ -17,9 +17,9 @@ Integrantes del equipo:
 -Garay Obregón, Isaac Bequer
 -Pariona Chacca, Angel Jose
 
-Características clave :
+<h3>Características clave :</h3>
 Navegación Intuitiva: Se garantiza un fácil acceso a todas las secciones del sitio web. En la versión de escritorio, un menú superior permanece fijo para facilitar la navegación. Para la versión móvil, el acceso principal se encuentra en un menú superior, con la posibilidad de una barra inferior para accesos rápidos
 
 Diseño Responsivo: La aplicación se ajusta automáticamente al dispositivo en uso, adaptando el tamaño de los botones, tarjetas y formularios a la pantalla de manera adecuada. Se utiliza un sistema de grillas para mantener un diseño organizado y coherente.
 
-Tecnologías usadas: HTML, CSS, JS, Google Fonts, Font Awesome, jQuery
+<h3>Tecnologías usadas: HTML, CSS, JS, Google Fonts, Font Awesome, jQuery</h3>
