@@ -132,13 +132,17 @@ input[type="text"] {
 
 /* Footer */
 footer {
+    display: flex;
+    flex-direction: row;
     background-color: #D2D240;
-    color: white;
+    color: black;
     padding: 10px 20px;
     text-align: center;
+    align-items: center;
     width: 100%;
     position: relative;
     bottom: 0;
+    justify-content: center;
 }
 
 footer .contacto {
@@ -147,12 +151,18 @@ footer .contacto {
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
+    width: 100%;
 }
+
+
+
+
 
 footer .contactanos {
     display: flex;
     gap: 30px;
     color: rgb(0,0,0);
+
 }
 
 footer .contactanos i {
@@ -166,6 +176,7 @@ footer .contactanos p {
 }
 
 footer .boton-contacto button {
+
     background-color: #ffffff;
     color: rgb(76, 108, 136);
     height: auto;

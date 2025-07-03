@@ -96,8 +96,9 @@ header nav ul li img{
     margin-top: 10px;
 }
 
-/* Estilos para el tÃ­tulo SaludAI */
-.titulo-saludai {
+/* Estilos para el AI */
+
+.titulo-juntai {
     font-size: 24px;
     color: #000000;
     margin-left: 300px; /* Ajustado para que la "S" no sea tapada */
