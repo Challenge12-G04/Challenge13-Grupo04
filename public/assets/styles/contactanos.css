@@ -1,0 +1,192 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black;
+    background-color: #FBF7EA;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para la barra de navegación */
+header nav {
+    background-color: #D2D240;
+    padding: 10px;
+    width: 100%;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-right: 35px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #506391;
+}
+
+header nav ul li img{
+    width: 50px;
+    height: auto;
+    border-radius: 50%; /* Rounded logo */
+}
+
+/* SECCIÓN CONTÁCTANOS */
+.contacto {
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    color: #333;
+}
+
+.contacto h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #222;
+}
+
+.contacto-contenido {
+    display: flex; /* Muestra el formulario y el texto lado a lado */
+    flex-direction: row;
+    gap: 3rem;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.formulario-contacto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+input,
+select,
+textarea {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+.checkboxes label,
+.radios label {
+    margin-right: 1rem;
+}
+
+button[type="submit"] {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: hwb(138 11% 41%);
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: hwb(138 11% 41%);
+}
+
+.contacto-instrucciones {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.mensaje-enviado {
+    margin-top: 1.5rem;
+    color: green;
+    font-weight: bold;
+}
+
+
+/* RESPONSIVE PARA MÓVILES */
+@media (max-width: 768px) {
+    .contacto-contenido {
+        flex-direction: column;
+    }
+
+    .formulario-contacto,
+    .contacto-instrucciones {
+        width: 100%;
+    }
+
+    .mensaje-enviado {
+        text-align: center;
+    }
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #D2D240;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+footer .contacto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+footer .contactanos {
+    display: flex;
+    gap: 30px;
+}
+
+footer .contactanos i {
+    font-size: 20px; /* Ajusta el tamaño del ícono */
+    color: rgb(255, 255, 255); /* Cambia el color del ícono */
+}
+
+footer .contactanos p {
+    margin-left: 10px; /* Espaciado entre ícono y texto */
+}
+
+footer .boton-contacto button {
+    background-color: #ffffff;
+    color: rgb(76, 108, 136);
+    height: auto;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 60px;
+}
+
+footer .boton-contacto button a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}

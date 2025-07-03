@@ -1,0 +1,261 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black;
+    background-color: #FBF7EA;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Encabezado */
+header {
+    background-color: #D2D240;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+header nav {
+    background-color: #D2D240;
+    padding: 10px;
+    width: 100%;
+}
+
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #506391;
+}
+header nav ul li img{
+    width: 50px;
+    height: auto;
+    border-radius: 50%; /* Rounded logo */
+}
+
+/* Contenido principal */
+main {
+    flex: 1;
+    padding: 20px;
+    background-color: #F5E8D2;
+}
+
+
+.bloque-informativo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #F5E8D2;
+    color: black;
+    padding: 40px 20px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.imagen-container1 img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.contenido-texto {
+    max-width: 900px;
+}
+
+.contenido-texto h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.contenido-texto p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.boton-contenedor a {
+    display: inline-block;
+    background-color: #003c80;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.boton-contenedor a:hover {
+    background-color: #002c60;
+}
+
+.boton-leermas1 button {
+    background-color: #0D3A45;
+    color: white;
+    border: none;
+    padding: 10px 15px 10px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex: content;
+    margin-top: 20px;
+    margin-left: 300px;
+    width: 120px;
+}
+
+.boton-leermas1 button a {
+    color: white;
+    text-decoration: none;
+}
+
+.boton-leermas1 button:hover {
+    background-color: #028490;
+}
+
+/* Sección descubre1 */
+.descubre1 {
+    background-color: #9CD1FC;
+    text-align: left;
+    color: #ffffff;
+    display: flex;
+}
+
+.descubre1 .subti {
+    display:flexbox;
+    margin-top: 0px;
+    margin-bottom: 200px;
+    font-size: 18px;
+    margin-left: 50px;
+    text-align: left;
+}
+
+.descubre1 .tex {
+    text-align: left;
+    font-size: 24px;
+    margin-top: 90px;
+    margin-left: 0px;
+    margin-bottom: 90px;
+    width: 200px;
+    margin-right: 20px;
+}
+
+.descubre1 .cincuenta {
+    display: flex;
+    margin-top: 80px;
+}
+
+.descubre1 .cincuenta div {
+    width: 200px;
+    margin: 30px;
+}
+
+
+
+/* Sección salud-conectando */
+
+
+.imagen-container2 img {
+    max-width: 100%;
+    height: auto;
+
+
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+
+.boton-leermas2 button {
+    background-color: #0D3A45;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-leermas2 button a {
+    color: white;
+    text-decoration: none;
+}
+.boton-leermas2 button:hover {
+    background-color: #028490;
+}
+
+
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #D2D240;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+footer .contacto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+footer .contactanos {
+    display: flex;
+    gap: 30px;
+}
+
+footer .contactanos i {
+    font-size: 20px; /* Ajusta el tamaño del ícono */
+    color: rgb(255, 255, 255); /* Cambia el color del ícono */
+}
+
+footer .contactanos p {
+    margin-left: 10px; /* Espaciado entre ícono y texto */
+}
+
+footer .boton-contacto button {
+    background-color: #ffffff;
+    color: rgb(76, 108, 136);
+    height: auto;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 60px;
+}
+
+footer .boton-contacto button a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}

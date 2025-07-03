@@ -1,198 +1,89 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing Page - Curso IHC y TM</title>
-    <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-    />
-    <script src="assets/scripts/main.js"></script>
-    <link rel="stylesheet" href="assets/styles/styles.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>JUNTO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="assets/styles/index.css">
 </head>
 <body>
-<!-- MENÚ SUPERIOR -->
-<nav class="top-header">
-    <a href="#" class="logo">
-       <img src="assets/images/JUNTOLOGO.png" height="203" width="210"
-             alt="Logo"/>
-    </a>
-    <!-- BOTÓN HAMBURGUESA -->
-    <button class="menu-toggle" aria-label="Abrir menú">
-        &#9776;
-        <!-- Ícono de hamburguesa -->
-    </button>
-
-    <!-- MENÚ DE NAVEGACIÓN -->
-    <ul class="menu-horizontal">
-        <li>
-            <a href="#">JUNTOWEB</a>
-
-            <ul class="menu-vertical">
-                <li><a href="#">Historia</a></li>
-                <li><a href="#">Propósito</a></li>
-                <li><a href="#">Visión y Misión</a></li>
-                <li><a href="#">Sedes</a></li>
-            </ul>
-        </li>
-        <li><a href="">INICIO</a></li>
-        <li><a href="">NOSOTROS</a></li>
-        <li><a href="">RECURSOS</a></li>
-        <li><a href="">BLOG Y ARTICULOS</a></li>
-        <li><a href="">CONTACTANOS</a></li>
+<header>
+  <nav>
+    <ul>
+      <li><img src="assets/images/JUNTOLOGO.png" height="203" width="210"/></li>
+      <li><a href="index.html">¿Qué es Junto?</a></li>
+      <li><a href="sobrenosotros1.html">Sobre Nosotros</a></li>
+      <li><a href="comunidad1.html">Comunidad</a></li>
+      <li><a href="iniciarsesion.html">Iniciar Sesión</a></li>
+      <li><a href="registro.html">Regístrate</a></li>
     </ul>
-    <div>
-        <div>
-            <button>SIGN IN</button>
-        </div>
-        <div>
-            <button>LOG IN</button>
-        </div>
+  </nav>
+</header>
+<main>
+  <h1>¿Qué es JUNTO?</h1>
+  <div class="logo-container">
+    <img src="assets/images/JUNTOLOGO.png" height="203" width="210"/>
+  </div>
+  <section class="que-es">
+    <div class="que-es-junto">
+      <p>Junto es una plataforma innovadora diseñada para apoyar a adolescentes en la gestión de la ansiedad digital, generada por el uso excesivo de redes sociales y la presión de permanecer siempre conectados. Mediante inteligencia artificial.</p>
     </div>
-</nav>
-
-<!-- SECCIÓN BIENVENIDO -->
-<section class="BIENVENIDO">
-    <h1>BIENVENIDO A NUESTRO SITIO WEB</h1>
-    <h2>Sobre nosotros</h2>
-
-    <div class="bienvenido-contenido">
-        <div class="bienvenido-imagen">
-            <img src="assets/images/JUNTOLOGO.png" height="203" width="210"
-                  alt="Imagen ilustrativa Junto"/>
-
-        </div>
-
-        <div class="Texto-conteiner">
-            <div class="bienvenido-texto">
-                <p>
-                    "Junto es una plataforma innovadora diseñada para apoyar a
-                    adolecentes en la gestion de la ansiedad digital, generada por el
-                    uso excesivo de redes sociales y la presion de permanecer siempre
-                    conectados. Mediante inteligencia artificial."
-                </p>
-                <p>¡Es momento de sentirse bien!</p>
-            </div>
-
-            <div class="container-block">
-                <h3>Obten más información</h3>
-            </div>
-        </div>
+    <div class="que-es-junto">
+      <p>Nuestra empresa se enfoca en reducir la ansiedad digital en adolescentes causada por el uso excesivo y emocionalmente intenso de redes sociales. </p>
     </div>
-</section>
-
-
-
-<!-- SECCIÓN CONTÁCTANOS -->
-<section class="contacto">
-    <h2>Contáctanos</h2>
-    <div class="contacto-contenido">
-        <!-- FORMULARIO -->
-        <form class="formulario-contacto" id="formularioContacto" name="Campos">
-            <div class="form-grupo">
-                <label for="nombres">Nombres:</label>
-                <input type="text" id="nombres" name="nombres" />
-
-                <!--required -->
-                <!--este te permite que se rellene los campos hasta que termine , en cajas de texo vacias-->
-            </div>
-
-            <div class="form-grupo">
-                <label for="apellidos">Apellidos:</label>
-                <input type="text" id="apellidos" name="apellidos" />
-
-                <!--  required -->
-            </div>
-
-            <div class="form-grupo">
-                <label for="tipoDoc">Tipo de Documento:</label>
-                <select id="tipoDoc" name="tipoDoc">
-                    <option value="dni">DNI</option>
-                    <option value="pasaporte">Pasaporte</option>
-                    <option value="carnet">Carnet de Extranjería</option>
-                </select>
-            </div>
-
-            <div class="form-grupo">
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" />
-            </div>
-
-            <div class="form-grupo">
-                <label for="pais">País:</label>
-                <select id="pais" name="pais">
-                    <option value="peru">Perú</option>
-                    <option value="chile">Chile</option>
-                    <option value="colombia">Colombia</option>
-                </select>
-            </div>
-
-            <div class="form-grupo">
-                <label for="email">Correo electrónico:</label>
-                <input type="text" id="email" name="email" />
-                <!--  required -->
-            </div>
-
-            <div class="form-grupo">
-                <label for="asunto">Asunto:</label>
-                <textarea id="asunto" name="asunto" rows="3"></textarea>
-            </div>
-
-            <div class="form-grupo">
-                <label>Preferencias de contacto:</label>
-                <div class="checkboxes">
-                    <label
-                    ><input type="checkbox" name="preferencia" value="correo" />
-                        Correo</label
-                    >
-                    <label
-                    ><input type="checkbox" name="preferencia" value="telefono" />
-                        Teléfono</label
-                    >
-                </div>
-            </div>
-
-            <div class="form-grupo">
-                <label>¿Eres estudiante?</label>
-                <div class="radios">
-                    <label
-                    ><input type="radio" name="estudiante" value="si" /> Sí</label
-                    >
-                    <label
-                    ><input type="radio" name="estudiante" value="no" /> No</label
-                    >
-                </div>
-            </div>
-
-            <button type="submit">Enviar</button>
-        </form>
-
-        <div class="contacto-instrucciones">
-            <p>
-                Completa el formulario con tus datos. Nuestro equipo se pondrá en
-                contacto contigo según la información proporcionada.
-            </p>
-            <p>
-                Recuerda usar un correo válido y seleccionar tu tipo de documento
-                correctamente. Si eres estudiante, indícalo para acceder a
-                beneficios exclusivos.
-            </p>
-            <div
-                    id="mensajeEnviado"
-                    class="mensaje-enviado"
-                    style="display: none"
-            >
-                Mensaje enviado correctamente.
-            </div>
-        </div>
+    <div class="que-es-junto">
+      <p>Creemos que la tecnología puede ser una herramienta para sanar, no solo para entretener. Apostamos por un entorno digital que fomente la introspección, la educación emocional y el autocuidado.</p>
     </div>
-</section>
+  </section>
+  <div class="cta">
+    <h2>INICIAR SESIÓN PARA OBTENER TODOS LOS BENEFICIOS</h2>
+    <div class="cta-buttons">
+      <button><a href="iniciarsesion.html">INICIAR SESIÓN</a></button>
+      <button><a href="registro.html">REGISTRATE</a></button>
+    </div>
+  </div>
+  <h2>BENEFICIOS</h2>
+  <section class="benefits">
+    <div class="benefit-junto">
+      <img src="assets/images/JuntAI.jpg" height="1120" width="1120"/>
+      <button><a href="iniciarsesion.html">Habla con JuntAI</a></button>
+    </div>
+    <div class="benefit-junto">
+      <img src="assets/images/notificacion.png" height="140" width="135"/>
+      <button><a href="iniciarsesion.html">Notificación</a></button>
+    </div>
+    <div class="benefit-junto">
+      <img src="assets/images/News.png" height="150" width="150"/>
+      <button><a href="iniciarsesion.html">Noticias</a></button>
+    </div>
+  </section>
+  <h2>BENEFICIOS</h2>
 
-<footer class="footer">
-    <p>&copy; 2025 JUNTO. Todos los derechos reservados.</p>
+
+</main>
+<footer>
+  <section class="contacto">
+    <div class="contactanos">
+      <h2>Contáctanos</h2>
+      <div class="telefono">
+        <i class="fas fa-phone-alt"></i>
+        <p>+51 953 967 934<br>01 534 6967</p>
+      </div>
+      <div class="mail">
+        <i class="fas fa-envelope"></i>
+        <p>contacto@junto.com<br>info@junto.pe</p>
+      </div>
+      <div class="direccion">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Av. Salaverry 234<br>Lima, Perú</p>
+      </div>
+    </div>
+    <div class="boton-contacto">
+      <button><a href="contactanos.html">Contáctanos</a></button>
+    </div>
+  </section>
 </footer>
-
 </body>
 </html>

@@ -1,0 +1,256 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Modern font for better readability */
+    margin: 0;
+    padding: 0;
+    color: #333333;
+    background-color: #F5E8D2; /* Softer background color */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+header nav {
+    background-color: #D2D240;
+    padding: 15px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds depth */
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li img {
+    width: 50px;
+    height: auto;
+    border-radius: 50%; /* Rounded logo */
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #506391;
+}
+
+/* Main Content */
+main > h1 {
+    text-align: center;
+    color: #222222;
+    font-size: 2.5rem;
+    margin: 30px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.logo-container img {
+    display: block;
+    margin: 20px auto;
+    width: 150px;
+    border-radius: 25px;
+    padding: 10px 20px;
+}
+
+.que-es {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+}
+
+.que-es-junto {
+    background-color: #D2D240;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 300px;
+    text-align: center;
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.que-es-junto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px ;
+}
+
+
+.cta {
+    text-align: center;
+    margin: 30px 0;
+    color: white;
+}
+
+.cta h2 {
+    font-size: 1.8rem;
+    background-color:#506391;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cta-buttons button {
+    background-color: #9CD1FC;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 30px;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cta-buttons button:hover {
+    background-color: #9CD1FC;
+    transform: scale(1.1);
+}
+
+.cta-buttons a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+main h2{
+    text-align: center;
+    color:white;
+    background-color:#506391;
+
+}.benefits {
+     display: flex;
+     justify-content: center;
+     gap: 30px;
+     flex-wrap: wrap;
+     padding: 40px 20px;
+ }
+
+.benefit-junto {
+    display: flex;
+    flex-direction: column; /*  fuerza el orden vertical */
+    align-items: center;
+    background-color: #9CD1FC;
+    border-radius: 15px;
+    text-align: center;
+    padding: 20px;
+    max-width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.benefit-junto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.benefit-junto img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+.benefit-junto p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    color: #003b5a;
+}
+
+.benefit-junto button {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.benefit-junto button a {
+    color: #0056b3;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.benefit-junto button:hover {
+    background-color: #7994A4;
+}
+main h2{
+    text-align: center;
+    color:white;
+    background-color:#506391;
+
+}
+
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #D2D240;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+footer .contacto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+footer .contactanos {
+    display: flex;
+    gap: 30px;
+}
+
+footer .contactanos i {
+    font-size: 20px; /* Ajusta el tamaño del ícono */
+    color: rgb(255, 255, 255); /* Cambia el color del ícono */
+}
+
+footer .contactanos p {
+    margin-left: 10px; /* Espaciado entre ícono y texto */
+}
+
+footer .boton-contacto button {
+    background-color: #ffffff;
+    color: rgb(76, 108, 136);
+    height: auto;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 60px;
+}
+
+footer .boton-contacto button a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}

@@ -1,0 +1,158 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #FFFFFF;
+    background-color: #F5E8D2;
+    scroll-behavior: smooth;
+}
+
+header nav {
+    background: #D2D240;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFF;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #506391;
+}
+header nav ul li img{
+    width: 50px;
+    height: auto;
+    border-radius: 50%; /* Rounded logo */
+}
+
+/* Menu lateral */
+.menu-lateral {
+    background: #307FD9;
+    color: #FFF;
+    width: 220px;
+    padding: 20px;
+    height: calc(100vh - 60px);
+    position: fixed;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.menu-lateral h2 {
+    margin-top: 0;
+    font-size: 22px;
+
+}
+
+.tema {
+    background: #FFF;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    color: #028490;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.tema:hover {
+    transform: translateY(-3px);
+}
+
+.tema h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.descripcion {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.fecha {
+    color: #A9A9A9;
+    font-size: 12px;
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* Estilos para el tÃ­tulo SaludAI */
+.titulo-saludai {
+    font-size: 24px;
+    color: #000000;
+    margin-left: 300px; /* Ajustado para que la "S" no sea tapada */
+    text-align: left;
+    margin-top: 20px;
+}
+
+.titulo-consulta {
+    font-size: 24px;
+    color: #000000;
+    text-align: center;
+    margin: 40px 0;
+}
+
+/* Estilos para el input de consulta */
+.input-consulta-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    position: relative;
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-consulta {
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* Espacio adicional a la derecha para el Ã­cono */
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    background: #307FD9;
+    color: white;
+}
+
+.enviar-boton {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Chat response styles */
+.respuesta-ai {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #7994A4;
+    color: #FFF;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -42,25 +42,21 @@ header nav ul li img{
     border-radius: 50%; /* Rounded logo */
 }
 
-/* Sección de Registro */
-.registro {
+/* Sección de Inicio de Sesión */
+.inicio-titulo {
     text-align: center;
     margin-top: 30px;
 }
 
-.registro h1 {
+.inicio-titulo h1 {
     font-size: 28px;
     color: #0D3A45;
 }
 
-.registro h2 {
-    font-size: 18px;
-    color: #028490;
-    margin: 10px 0;
-}
 
-.registro button {
-    background-color: #028490;
+
+.inicio-titulo button {
+    background-color: #506391;
     color: white;
     border: none;
     border-radius: 5px;
@@ -69,13 +65,13 @@ header nav ul li img{
     font-size: 14px;
 }
 
-.registro button a {
+.inicio-titulo button a {
     color: white;
     text-decoration: none;
 }
 
 /* Sección del formulario */
-.registro-datos {
+.inicio-datos {
     max-width: 400px;
     margin: 20px auto;
     padding: 20px;
@@ -84,17 +80,15 @@ header nav ul li img{
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.registro-datos label {
+.inicio-datos label {
     font-size: 16px;
     color: #333;
     display: block;
     margin: 10px 0 5px;
 }
 
-.registro-datos input[type="tel"],
-.registro-datos input[type="number"],
-.registro-datos input[type="email"],
-.registro-datos input[type="password"] {
+.inicio-datos input[type="caracter"],
+.inicio-datos input[type="password"] {
     width: 95%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -103,9 +97,7 @@ header nav ul li img{
     margin-bottom: 10px;
 }
 
-
-
-.registro-datos button[type="submit"] {
+.inicio-datos button[type="submit"] {
     background-color: #506391;
     color: white;
     border: none;
@@ -133,7 +125,6 @@ footer {
 
 footer .contacto {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
