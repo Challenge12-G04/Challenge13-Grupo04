@@ -85,7 +85,7 @@ main > div {
 
 
 
-/* Estilos para Bienvenida y Historial Médico */
+/* Estilos para Bienvenida */
 .sec1 {
     display: flex;
     justify-content: space-between;
@@ -276,6 +276,8 @@ footer .contactanos p {
     margin-left: 10px; /* Espaciado entre ícono y texto */
     color: black;
 }
+
+
 
 footer .boton-contacto button {
 

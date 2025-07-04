@@ -119,13 +119,17 @@ footer {
     flex-direction: row;
     background-color: #D2D240;
     color: black;
-    padding: 10px 20px;
-    text-align: center;
     align-items: center;
     width: 100%;
     position: relative;
     bottom: 0;
     justify-content: center;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    z-index: 100;
 }
 
 footer .contacto {
