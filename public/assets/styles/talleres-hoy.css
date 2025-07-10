@@ -1,0 +1,292 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el tamaño total */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black; /* Color preestablecido */
+    background-color: #FBF7EA; /* Color preestablecido */
+    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura del viewport */
+    display: flex; /* Habilita Flexbox para el body */
+    flex-direction: column; /* Apila los elementos hijos (header, main, footer) verticalmente */
+}
+
+/* Estilos para la barra de navegación */
+header nav {
+    background-color: #D2D240; /* Color preestablecido */
+    padding: 10px;
+    width: 100%;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around; /* Cambiado a space-around para distribuir mejor los elementos */
+    align-items: center;
+    margin: 0 auto; /* Centra el menú de navegación */
+    padding: 0;
+    max-width: 1200px; /* Ancho máximo para la barra de navegación */
+}
+
+header nav ul li {
+    margin-right: 0; /* Eliminar el margen fijo, space-around lo manejará */
+    margin: 0 15px; /* Un poco de margen entre los ítems */
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0); /* Color preestablecido */
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease; /* Añadido ease para una transición más suave */
+    padding: 5px 10px; /* Añadido padding para mejorar el área de clic */
+    border-radius: 5px; /* Para un sutil efecto de fondo en hover */
+}
+
+header nav ul li a:hover {
+    color: #506391; /* Color preestablecido */
+    background-color: rgba(80, 99, 145, 0.1); /* Fondo sutil para el hover */
+}
+
+header nav ul li img{
+    width: 60px; /* Aumentado ligeramente para mejor visibilidad, puedes ajustar a 50px si prefieres */
+    height: auto;
+    border-radius: 50%; /* Rounded logo */
+    vertical-align: middle; /* Alinea el logo con el texto de la nav */
+}
+
+/* Main general (copiado del global si no está en otro archivo) */
+main {
+    background-color: #D9D9D9; /* Gris claro para el fondo principal */
+    padding: 40px 0; /* Espacio general superior e inferior */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex: 1; /* Para el sticky footer */
+}
+
+/* Título de la página */
+.page-title {
+    width: 90%;
+    max-width: 1200px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: black; /* Asegura que el texto sea visible */
+}
+
+.page-title h1 {
+    font-size: 3rem;
+    color: #506391; /* Color de título principal */
+    margin-bottom: 10px;
+}
+
+.page-title p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Contenedor de la cuadrícula de talleres */
+.workshops-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* Espacio entre las tarjetas */
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px 0;
+}
+
+/* Estilos para cada tarjeta de taller */
+.workshop-card {
+    background-color: #FFFFFF; /* Fondo blanco */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Para que la imagen no se salga de los bordes redondeados */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja los botones al final */
+    text-align: center;
+    color: black;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.workshop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.workshop-card img {
+    width: 100%;
+    height: 180px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+    border-bottom: 3px solid #9CD1FC; /* Línea separadora */
+}
+
+.workshop-card h2 {
+    font-size: 1.8rem;
+    color: #506391;
+    margin: 15px 15px 10px 15px;
+}
+
+.workshop-card .workshop-description {
+    font-size: 1rem;
+    color: #555;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Permite que la descripción ocupe el espacio extra */
+}
+
+.workshop-details {
+    text-align: left;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    background-color: #F8F8F8; /* Un fondo ligeramente diferente para los detalles */
+}
+
+.workshop-details p {
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.workshop-details p:last-child {
+    margin-bottom: 0;
+}
+
+.workshop-details p i {
+    color: #D2D240; /* Iconos amarillos */
+    font-size: 1.1rem;
+}
+
+/* Contenedor de botones */
+.workshop-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    background-color: #fcfcfc;
+}
+
+.workshop-actions button {
+    flex: 1;
+    border: none;
+    padding: 12px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.workshop-actions button a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: block;
+}
+
+
+.workshop-actions .details-btn {
+    background-color: #506391; /* Azul oscuro/morado */
+}
+
+.workshop-actions .details-btn:hover {
+    background-color: #3f4e7c;
+    transform: translateY(-2px);
+}
+
+/* Estilo para botón "Inscribirse" */
+.workshop-actions .enroll-btn {
+    background-color: #307FD9; /* Azul principal */
+}
+
+.workshop-actions .enroll-btn:hover {
+    background-color: #256bbd;
+    transform: translateY(-2px);
+}
+
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .page-title h1 {
+        font-size: 2.5rem;
+    }
+    .page-title p {
+        font-size: 1.1rem;
+    }
+    .workshops-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+    .workshop-card h2 {
+        font-size: 1.6rem;
+    }
+    .workshop-card .workshop-description {
+        font-size: 0.95rem;
+    }
+}
+
+    footer {
+        display: flex;
+        flex-direction: row;
+        background-color: #D2D240;
+        color: black;
+        padding: 10px 20px;
+        text-align: center;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        bottom: 0;
+        justify-content: center;
+    }
+
+    footer .contacto {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+    }
+
+
+    footer .contactanos {
+        display: flex;
+        gap: 30px;
+        color: rgb(0,0,0);
+
+    }
+
+    footer .contactanos i {
+        font-size: 20px; /* Ajusta el tamaño del ícono */
+        color: rgb(255, 255, 255); /* Cambia el color del ícono */
+    }
+
+    footer .contactanos p {
+        margin-left: 10px; /* Espaciado entre ícono y texto */
+        color: black;
+    }
+
+    footer .boton-contacto button {
+
+        background-color: #ffffff;
+        color: rgb(76, 108, 136);
+        height: auto;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 60px;
+    }
+
+    footer .boton-contacto button a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+    }

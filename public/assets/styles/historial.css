@@ -1,0 +1,303 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el tamaño total */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black; /* Color preestablecido */
+    background-color: #FBF7EA; /* Color preestablecido */
+    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura del viewport */
+    display: flex; /* Habilita Flexbox para el body */
+    flex-direction: column; /* Apila los elementos hijos (header, main, footer) verticalmente */
+}
+
+/* Estilos para la barra de navegación */
+header nav {
+    background-color: #D2D240; /* Color preestablecido */
+    padding: 10px;
+    width: 100%;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around; /* Cambiado a space-around para distribuir mejor los elementos */
+    align-items: center;
+    margin: 0 auto; /* Centra el menú de navegación */
+    padding: 0;
+    max-width: 1200px; /* Ancho máximo para la barra de navegación */
+}
+
+header nav ul li {
+    margin-right: 0; /* Eliminar el margen fijo, space-around lo manejará */
+    margin: 0 15px; /* Un poco de margen entre los ítems */
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0); /* Color preestablecido */
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease; /* Añadido ease para una transición más suave */
+    padding: 5px 10px; /* Añadido padding para mejorar el área de clic */
+    border-radius: 5px; /* Para un sutil efecto de fondo en hover */
+}
+
+header nav ul li a:hover {
+    color: #506391; /* Color preestablecido */
+    background-color: rgba(80, 99, 145, 0.1); /* Fondo sutil para el hover */
+}
+
+header nav ul li img{
+    width: 60px; /* Aumentado ligeramente para mejor visibilidad, puedes ajustar a 50px si prefieres */
+    height: auto;
+    border-radius: 50%; /* Rounded logo */
+    vertical-align: middle; /* Alinea el logo con el texto de la nav */
+}
+
+
+/* Main general (copiado del global si no está en otro archivo) */
+main {
+    background-color: #D9D9D9; /* Gris claro para el fondo principal */
+    padding: 40px 0; /* Espacio general superior e inferior */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex: 1; /* Para el sticky footer */
+}
+
+/* Título de la página */
+.page-title {
+    width: 90%;
+    max-width: 1200px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.page-title h1 {
+    font-size: 2.8rem;
+    color: #506391; /* Color de título principal */
+    margin-bottom: 0;
+}
+
+
+/* Contenedor de la lista de historial */
+.historial-list {
+    display: flex;
+    flex-direction: column; /* Apila los ítems verticalmente */
+    gap: 25px; /* Espacio entre cada item del historial */
+    margin: 0 auto;
+    max-width: 900px; /* Ancho máximo para la lista */
+    width: 90%; /* Ancho responsivo */
+}
+
+/* Estilo para cada item del historial */
+.historial-item {
+    background-color: #FFFFFF; /* Fondo blanco para cada tarjeta */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: flex-start; /* Alinea los elementos al inicio */
+    gap: 25px; /* Espacio entre el icono y los detalles */
+    color: black;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.historial-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.item-icon {
+    flex-shrink: 0; /* Evita que el icono se encoja */
+    font-size: 3rem; /* Tamaño del icono */
+    color: #307FD9; /* Color del icono */
+    padding-top: 5px; /* Ajuste vertical del icono */
+}
+
+.item-details {
+    flex-grow: 1; /* Permite que los detalles ocupen el espacio restante */
+}
+
+.item-details h2 {
+    font-size: 1.8rem;
+    color: #506391; /* Título del item */
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.item-details .item-date {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.item-details .item-date i {
+    color: #9CD1FC; /* Color del icono de calendario */
+}
+
+.item-details .item-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.item-actions {
+    display: flex;
+    gap: 15px; /* Espacio entre los botones */
+    flex-wrap: wrap; /* Permite que los botones se envuelvan */
+}
+
+.historial-item button {
+    background-color: #9CD1FC; /* Color de fondo para el botón principal */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.historial-item button:hover {
+    background-color: #7BB9E8; /* Tono más oscuro en hover */
+}
+
+.historial-item button a {
+    color: #FFFFFF; /* Texto blanco para el botón */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    display: block;
+}
+
+.historial-item .review-btn {
+    background-color: #D2D240; /* Color alternativo para el botón de reseña */
+}
+
+.historial-item .review-btn:hover {
+    background-color: #B0B030; /* Tono más oscuro para el botón de reseña en hover */
+}
+
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .page-title h1 {
+        font-size: 2.2rem;
+    }
+
+    .historial-list {
+        gap: 20px;
+    }
+
+    .historial-item {
+        flex-direction: column; /* Apila el icono y los detalles en pantallas pequeñas */
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .item-icon {
+        font-size: 2.5rem;
+        padding-top: 0;
+    }
+
+    .item-details h2 {
+        font-size: 1.5rem;
+    }
+
+    .item-details .item-date {
+        justify-content: center; /* Centra la fecha */
+    }
+
+    .item-details .item-description {
+        font-size: 0.9rem;
+    }
+
+    .item-actions {
+        flex-direction: column; /* Apila los botones en móviles */
+        gap: 10px;
+        width: 100%; /* Botones ocupan todo el ancho */
+    }
+
+    .historial-item button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title h1 {
+        font-size: 1.8rem;
+    }
+
+    .historial-item {
+        padding: 15px;
+    }
+}
+
+/* Estilos para el pie de página */
+/* Footer */
+footer {
+    display: flex;
+    flex-direction: row;
+    background-color: #D2D240;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    justify-content: center;
+}
+
+footer .contacto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+
+footer .contactanos {
+    display: flex;
+    gap: 30px;
+    color: rgb(0,0,0);
+
+}
+
+footer .contactanos i {
+    font-size: 20px; /* Ajusta el tamaño del ícono */
+    color: rgb(255, 255, 255); /* Cambia el color del ícono */
+}
+
+footer .contactanos p {
+    margin-left: 10px; /* Espaciado entre ícono y texto */
+    color: black;
+}
+
+footer .boton-contacto button {
+
+    background-color: #ffffff;
+    color: rgb(76, 108, 136);
+    height: auto;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 60px;
+}
+
+footer .boton-contacto button a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}

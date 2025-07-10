@@ -1,18 +1,18 @@
-/* Estilos generales */
+
+* {
+    box-sizing: border-box;
+}
 body {
     font-family: Arial, sans-serif;
+    color: rgb(0,0,0);
     margin: 0;
     padding: 0;
-    color: black;
-    background-color: #FBF7EA;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
-/* Estilos para la barra de navegación */
+
+/* Header */
 header nav {
-    background-color: #D2D240;
+    background-color:#D2D240;
     padding: 10px;
     width: 100%;
 }
@@ -37,10 +37,10 @@ header nav ul li a {
     font-weight: 600;
     transition: color 0.3s;
 }
-
 header nav ul li a:hover {
     color: #506391;
 }
+
 
 header nav ul li img{
     width: 50px;
@@ -48,102 +48,72 @@ header nav ul li img{
     border-radius: 50%; /* Rounded logo */
 }
 
-/* SECCIÓN CONTÁCTANOS */
-.contacto {
-    padding-top: 6rem;
-    padding-bottom: 3rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    color: #333;
+/* Main Content */
+main {
+    flex: 1; /* Ocupa el espacio restante */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra el contenido vertical y horizontalmente */
+    padding: 40px 20px;
+    background-color: #D9D9D9; /* Fondo gris claro */
 }
 
-.contacto h2 {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #222;
-}
-
-.contacto-contenido {
-    display: flex; /* Muestra el formulario y el texto lado a lado */
-    flex-direction: row;
-    gap: 3rem;
+.logout-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
     width: 100%;
-    align-items: flex-start;
-}
-
-.formulario-contacto {
-    flex: 1;
+    max-width: 500px; /* Ancho máximo para el contenedor de despedida */
+    text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    align-items: center;
 }
 
-.form-grupo {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+.logout-icon {
+    font-size: 4em; /* Tamaño grande para el icono de despedida */
+    color: #8BC34A; /* Verde del logo */
+    margin-bottom: 20px;
 }
 
-input,
-select,
-textarea {
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
+.logout-container h1 {
+    font-size: 2.5em;
+    color: #506391; /* Azul oscuro */
+    margin-bottom: 15px;
 }
 
-.checkboxes label,
-.radios label {
-    margin-right: 1rem;
+.logout-container .message {
+    font-size: 1.2em;
+    color: #444;
+    margin-bottom: 30px;
+    line-height: 1.5;
 }
 
-button[type="submit"] {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    background-color: #256BBD;
-    color: #fff;
+.login-again-btn {
+    background-color: #307FD9; /* Azul principal */
     border: none;
-    border-radius: 0.5rem;
+    padding: 15px 30px;
+    border-radius: 8px;
     cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: hwb(138 11% 41%);
-}
-
-.contacto-instrucciones {
-    flex: 1;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.mensaje-enviado {
-    margin-top: 1.5rem;
-    color: green;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     font-weight: bold;
+    font-size: 1.1em;
+}
+
+.login-again-btn a {
+    color: white;
+    text-decoration: none;
+    display: block; /* Para que el enlace ocupe todo el botón */
+}
+
+.login-again-btn:hover {
+    background-color: #256bbd;
+    transform: translateY(-2px);
 }
 
 
-/* RESPONSIVE PARA MÓVILES */
-@media (max-width: 768px) {
-    .contacto-contenido {
-        flex-direction: column;
-    }
-
-    .formulario-contacto,
-    .contacto-instrucciones {
-        width: 100%;
-    }
-
-    .mensaje-enviado {
-        text-align: center;
-    }
-}
-
-/* Estilos para el pie de página */
-
+/* Footer *//* Footer */
 footer {
     display: flex;
     flex-direction: row;

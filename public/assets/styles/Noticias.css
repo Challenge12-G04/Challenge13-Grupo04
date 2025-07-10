@@ -1,0 +1,278 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black;
+    background-color: #FBF7EA;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Header y Barra de Navegación */
+header {
+    background-color: #D2D240; /* Color preestablecido del header */
+    padding: 10px 0; /* Padding superior e inferior, 0 lateral */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    /* Ajustado a space-around para mejor distribución visual de la imagen */
+    justify-content: space-around; /* Distribuye uniformemente los elementos */
+    align-items: center;
+    margin: 0 auto; /* Centra el menú */
+    padding: 0;
+    max-width: 1200px; /* Ancho máximo para el contenido del nav */
+}
+
+header nav ul li {
+    /* Eliminamos el margen fijo derecho, space-around lo manejará */
+    margin: 0 15px; /* Pequeño margen entre elementos para separación */
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0); /* Color preestablecido de los enlaces del nav */
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease; /* Transición suave para hover */
+    padding: 5px 10px; /* Para hacer el área de clic un poco más grande */
+    border-radius: 5px; /* Bordes redondeados para el efecto hover */
+}
+
+header nav ul li a:hover {
+    color: #506391; /* Color preestablecido para hover */
+    background-color: rgba(80, 99, 145, 0.1); /* Fondo sutil al pasar el ratón */
+}
+
+header nav ul li img {
+    width: 60px; /* Ajustado el tamaño del logo para que se vea más acorde a la imagen */
+    height: auto;
+    border-radius: 50%; /* Rounded logo */
+    vertical-align: middle; /* Alinea el logo con el texto */
+}
+
+
+/* Contenido principal */
+main {
+    flex: 1;
+    padding: 20px;
+    background-color: #F5E8D2;
+}
+
+
+.bloque-informativo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #F5E8D2;
+    color: black;
+    padding: 40px 20px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+.imagen-container1 img {
+    width: 350px; /* Puedes ajustar este valor. Podría ser un porcentaje como 80% o un valor fijo en px */
+    height: 350px; /* Asegura que la imagen sea cuadrada si eso es lo que buscas */
+    object-fit: cover; /* Recorta la imagen para que llene el espacio sin distorsionarse */
+    border-radius: 6px;
+    margin-bottom: 0; /* Elimina el margen inferior si ya está en un flex item */
+}
+}
+
+.contenido-texto {
+    max-width: 900px;
+}
+
+.contenido-texto h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.contenido-texto p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.boton-contenedor a {
+    display: inline-block;
+    background-color: #003c80;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.boton-contenedor a:hover {
+    background-color: #002c60;
+}
+
+.boton-leermas1 button {
+    background-color: #0D3A45;
+    color: white;
+    border: none;
+    padding: 10px 15px 10px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex: content;
+    margin-top: 20px;
+    margin-left: 300px;
+    width: 120px;
+}
+
+.boton-leermas1 button a {
+    color: white;
+    text-decoration: none;
+}
+
+.boton-leermas1 button:hover {
+    background-color: #028490;
+}
+
+/* Sección descubre1 */
+.descubre1 {
+    background-color: #9CD1FC;
+    text-align: left;
+    color: #ffffff;
+    display: flex;
+}
+
+.descubre1 .subti {
+    display:flexbox;
+    margin-top: 0px;
+    margin-bottom: 200px;
+    font-size: 18px;
+    margin-left: 50px;
+    text-align: left;
+}
+
+.descubre1 .tex {
+    text-align: left;
+    font-size: 24px;
+    margin-top: 90px;
+    margin-left: 0px;
+    margin-bottom: 90px;
+    width: 200px;
+    margin-right: 20px;
+}
+
+.descubre1 .cincuenta {
+    display: flex;
+    margin-top: 80px;
+}
+
+.descubre1 .cincuenta div {
+    width: 200px;
+    margin: 30px;
+}
+
+
+
+/* Sección salud-conectando */
+
+
+.imagen-container2 img {
+    width: 400px; /* Puedes ajustar este valor */
+    height: 400px; /* Puedes ajustar este valor */
+    object-fit: cover; /* Recorta la imagen para que llene el espacio sin distorsionarse */
+    border-radius: 6px;
+    margin-bottom: 0;
+}
+
+
+.boton-leermas2 button {
+    background-color: #0D3A45;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-leermas2 button a {
+    color: white;
+    text-decoration: none;
+}
+.boton-leermas2 button:hover {
+    background-color: #028490;
+}
+
+
+
+/* Estilos para el pie de página */
+/* Footer */
+footer {
+    display: flex;
+    flex-direction: row;
+    background-color: #D2D240;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    justify-content: center;
+}
+
+footer .contacto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+
+footer .contactanos {
+    display: flex;
+    gap: 30px;
+    color: rgb(0,0,0);
+
+}
+
+footer .contactanos i {
+    font-size: 20px; /* Ajusta el tamaño del ícono */
+    color: rgb(255, 255, 255); /* Cambia el color del ícono */
+}
+
+footer .contactanos p {
+    margin-left: 10px; /* Espaciado entre ícono y texto */
+    color: black;
+}
+
+footer .boton-contacto button {
+
+    background-color: #ffffff;
+    color: rgb(76, 108, 136);
+    height: auto;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 60px;
+}
+
+footer .boton-contacto button a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}

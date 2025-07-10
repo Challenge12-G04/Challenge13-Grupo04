@@ -1,0 +1,254 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el tamaño total */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black; /* Color preestablecido */
+    background-color: #FBF7EA; /* Color preestablecido */
+    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura del viewport */
+    display: flex; /* Habilita Flexbox para el body */
+    flex-direction: column; /* Apila los elementos hijos (header, main, footer) verticalmente */
+}
+
+/* Estilos para la barra de navegación */
+header nav {
+    background-color: #D2D240; /* Color preestablecido */
+    padding: 10px;
+    width: 100%;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around; /* Cambiado a space-around para distribuir mejor los elementos */
+    align-items: center;
+    margin: 0 auto; /* Centra el menú de navegación */
+    padding: 0;
+    max-width: 1200px; /* Ancho máximo para la barra de navegación */
+}
+
+header nav ul li {
+    margin-right: 0; /* Eliminar el margen fijo, space-around lo manejará */
+    margin: 0 15px; /* Un poco de margen entre los ítems */
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0); /* Color preestablecido */
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease; /* Añadido ease para una transición más suave */
+    padding: 5px 10px; /* Añadido padding para mejorar el área de clic */
+    border-radius: 5px; /* Para un sutil efecto de fondo en hover */
+}
+
+header nav ul li a:hover {
+    color: #506391; /* Color preestablecido */
+    background-color: rgba(80, 99, 145, 0.1); /* Fondo sutil para el hover */
+}
+
+header nav ul li img{
+    width: 60px; /* Aumentado ligeramente para mejor visibilidad, puedes ajustar a 50px si prefieres */
+    height: auto;
+    border-radius: 50%; /* Rounded logo */
+    vertical-align: middle; /* Alinea el logo con el texto de la nav */
+}
+
+
+/* Contenedor principal de la cuadrícula de instructores */
+.instructors-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las tarjetas en el grid */
+    gap: 25px; /* Espacio entre las tarjetas de instructores */
+    margin: 30px auto;
+    max-width: 1200px; /* Ajusta el ancho máximo para el contenido de instructores */
+    width: 90%;
+}
+
+/* Estilo para cada tarjeta de instructor */
+.instructor-card {
+    background-color: #506391; /* Color de fondo similar a las tarjetas de sec2 */
+    color: #FFFFFF; /* Color de texto blanco */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    max-width: 350px; /* Ancho máximo para cada tarjeta */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.instructor-card:hover {
+    transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.instructor-card img {
+    width: 150px; /* Tamaño de la imagen del instructor */
+    height: 150px;
+    border-radius: 50%; /* Imágenes circulares */
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #9CD1FC; /* Borde alrededor de la imagen */
+}
+
+.instructor-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #FFFFFF; /* Título en blanco */
+}
+
+.instructor-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: #E0E0E0; /* Texto de descripción ligeramente más claro */
+}
+
+.instructor-details {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.instructor-details p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: #FFFFFF; /* Asegura que la información detallada sea blanca */
+}
+
+.instructor-details i {
+    margin-right: 8px;
+    color: #9CD1FC; /* Color de los íconos de detalle */
+}
+
+.instructor-card button {
+    background-color: #9CD1FC; /* Color del botón de Contactar */
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto; /* Ancho automático para el botón */
+}
+
+.instructor-card button:hover {
+    background-color: #7BB9E8; /* Un tono un poco más oscuro para hover */
+}
+
+.instructor-card button a {
+    color: #FFFFFF; /* Color del texto del botón blanco */
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: block; /* Para que el enlace ocupe todo el botón */
+}
+
+/* Ajustes responsivos para instructores */
+@media (max-width: 768px) {
+    .instructors-grid {
+        gap: 20px;
+    }
+
+    .instructor-card {
+        max-width: 95%; /* Las tarjetas ocupan casi todo el ancho en móviles */
+        padding: 15px;
+    }
+
+    .instructor-card img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .instructor-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .instructor-card p {
+        font-size: 0.9rem;
+    }
+
+    .instructor-card button {
+        padding: 10px 20px;
+    }
+
+    .instructor-card button a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .instructor-card {
+        padding: 10px;
+    }
+}
+
+
+
+/* Estilos para el pie de página */
+/* Footer */
+footer {
+    display: flex;
+    flex-direction: row;
+    background-color: #D2D240;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    justify-content: center;
+}
+
+footer .contacto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+
+footer .contactanos {
+    display: flex;
+    gap: 30px;
+    color: rgb(0,0,0);
+
+}
+
+footer .contactanos i {
+    font-size: 20px; /* Ajusta el tamaño del ícono */
+    color: rgb(255, 255, 255); /* Cambia el color del ícono */
+}
+
+footer .contactanos p {
+    margin-left: 10px; /* Espaciado entre ícono y texto */
+    color: black;
+}
+
+footer .boton-contacto button {
+
+    background-color: #ffffff;
+    color: rgb(76, 108, 136);
+    height: auto;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 60px;
+}
+
+footer .boton-contacto button a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}

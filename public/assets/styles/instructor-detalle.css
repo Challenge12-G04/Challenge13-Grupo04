@@ -1,0 +1,397 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el tamaño total */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black; /* Color preestablecido */
+    background-color: #FBF7EA; /* Color preestablecido */
+    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura del viewport */
+    display: flex; /* Habilita Flexbox para el body */
+    flex-direction: column; /* Apila los elementos hijos (header, main, footer) verticalmente */
+}
+
+/* Estilos para la barra de navegación */
+header nav {
+    background-color: #D2D240; /* Color preestablecido */
+    padding: 10px;
+    width: 100%;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around; /* Cambiado a space-around para distribuir mejor los elementos */
+    align-items: center;
+    margin: 0 auto; /* Centra el menú de navegación */
+    padding: 0;
+    max-width: 1200px; /* Ancho máximo para la barra de navegación */
+}
+
+header nav ul li {
+    margin-right: 0; /* Eliminar el margen fijo, space-around lo manejará */
+    margin: 0 15px; /* Un poco de margen entre los ítems */
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0); /* Color preestablecido */
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease; /* Añadido ease para una transición más suave */
+    padding: 5px 10px; /* Añadido padding para mejorar el área de clic */
+    border-radius: 5px; /* Para un sutil efecto de fondo en hover */
+}
+
+header nav ul li a:hover {
+    color: #506391; /* Color preestablecido */
+    background-color: rgba(80, 99, 145, 0.1); /* Fondo sutil para el hover */
+}
+
+header nav ul li img{
+    width: 60px; /* Aumentado ligeramente para mejor visibilidad, puedes ajustar a 50px si prefieres */
+    height: auto;
+    border-radius: 50%; /* Rounded logo */
+    vertical-align: middle; /* Alinea el logo con el texto de la nav */
+}
+
+/* Main general (copiado del global si no está en otro archivo) */
+main {
+    background-color: #D9D9D9; /* Gris claro para el fondo principal */
+    padding: 40px 0; /* Espacio general superior e inferior */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex: 1; /* Para el sticky footer */
+}
+
+/* Título de la página */
+.page-title {
+    width: 90%;
+    max-width: 1200px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.page-title h1 {
+    font-size: 2.8rem;
+    color: #506391; /* Color de título principal */
+    margin-bottom: 0;
+}
+
+/* Contenedor principal del perfil del instructor */
+.instructor-profile {
+    background-color: #FFFFFF; /* Fondo blanco */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: black;
+}
+
+.profile-header {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-header img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Imagen circular */
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 5px solid #9CD1FC; /* Borde azul claro */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header h2 {
+    font-size: 2.5rem;
+    color: #506391; /* Azul oscuro/morado para el nombre */
+    margin-bottom: 10px;
+}
+
+.profile-header .profile-tagline {
+    font-style: italic;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.profile-details-section {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee; /* Separador sutil */
+}
+
+.profile-details-section:last-of-type {
+    border-bottom: none; /* Elimina el borde del último */
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.profile-details-section h3 {
+    font-size: 1.8rem;
+    color: #307FD9; /* Azul principal para los subtítulos */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #9CD1FC; /* Línea debajo del subtítulo */
+    display: inline-block; /* Para que la línea se ajuste al texto */
+    padding-bottom: 5px;
+}
+
+.profile-bio {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+.profile-disciplines,
+.profile-experience {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-disciplines li,
+.profile-experience li {
+    font-size: 1.05rem;
+    color: #444;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.profile-disciplines li i,
+.profile-experience li i {
+    color: #D2D240; /* Amarillo para los íconos de lista */
+    font-size: 1.2rem;
+    margin-top: 3px; /* Alineación del ícono */
+}
+
+.profile-contact-info p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-contact-info p i {
+    color: #9CD1FC; /* Azul claro para los íconos de contacto */
+    font-size: 1.2rem;
+}
+
+.contact-instructor-btn {
+    background-color: #9CD1FC; /* Botón azul claro */
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.contact-instructor-btn:hover {
+    background-color: #7BB9E8; /* Azul más oscuro en hover */
+}
+
+.contact-instructor-btn a {
+    color: #FFFFFF; /* Texto blanco */
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: block;
+}
+
+/* Sección de Reseñas */
+.reviews-section {
+    background-color: #FBF7EA; /* Fondo amarillo claro */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05); /* Sutil sombra interna */
+    border: none; /* Elimina el borde inferior del padre */
+    padding-bottom: 30px; /* Ajusta padding por si no hay borde */
+}
+
+.reviews-section h3 {
+    color: #307FD9;
+    border-bottom: 2px solid #D2D240; /* Línea amarilla para el título de reseñas */
+}
+
+.review-card {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    text-align: left;
+    color: black;
+}
+
+.review-card:last-child {
+    margin-bottom: 0;
+}
+
+.review-card .review-text {
+    font-style: italic;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.review-card .review-author {
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 5px;
+}
+
+.review-card .review-rating {
+    text-align: right;
+    color: #D2D240; /* Estrellas amarillas */
+    font-size: 1.1rem;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .page-title h1 {
+        font-size: 2.2rem;
+    }
+
+    .instructor-profile {
+        padding: 25px;
+    }
+
+    .profile-header img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .profile-header h2 {
+        font-size: 2rem;
+    }
+
+    .profile-header .profile-tagline {
+        font-size: 1rem;
+    }
+
+    .profile-details-section h3 {
+        font-size: 1.5rem;
+    }
+
+    .profile-bio,
+    .profile-disciplines li,
+    .profile-experience li,
+    .profile-contact-info p {
+        font-size: 1rem;
+    }
+
+    .contact-instructor-btn {
+        padding: 12px 25px;
+    }
+
+    .contact-instructor-btn a {
+        font-size: 1.1rem;
+    }
+
+    .review-card {
+        padding: 15px;
+    }
+
+    .review-card .review-text {
+        font-size: 0.95rem;
+    }
+
+    .review-card .review-rating {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title h1 {
+        font-size: 1.8rem;
+    }
+    .instructor-profile {
+        padding: 15px;
+    }
+    .profile-header h2 {
+        font-size: 1.8rem;
+    }
+    .profile-details-section h3 {
+        font-size: 1.3rem;
+    }
+}
+
+
+
+
+/* Estilos para el pie de página */
+/* Footer */
+footer {
+    display: flex;
+    flex-direction: row;
+    background-color: #D2D240;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    justify-content: center;
+}
+
+footer .contacto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+
+footer .contactanos {
+    display: flex;
+    gap: 30px;
+    color: rgb(0,0,0);
+
+}
+
+footer .contactanos i {
+    font-size: 20px; /* Ajusta el tamaño del ícono */
+    color: rgb(255, 255, 255); /* Cambia el color del ícono */
+}
+
+footer .contactanos p {
+    margin-left: 10px; /* Espaciado entre ícono y texto */
+    color: black;
+}
+
+footer .boton-contacto button {
+
+    background-color: #ffffff;
+    color: rgb(76, 108, 136);
+    height: auto;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 60px;
+}
+
+footer .boton-contacto button a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}

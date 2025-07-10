@@ -1,0 +1,262 @@
+/* Estilos generales y para el "Sticky Footer" con Flexbox */
+html, body {
+    height: 100%; /* Asegura que html y body ocupen el 100% de la altura de la ventana */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Aplica box-sizing a todos los elementos por defecto */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: rgb(0,0,0); /* Color de texto general preestablecido */
+    background-color: #F0F0F0; /* Fondo gris claro que se ve en la imagen */
+    display: flex; /* Habilita Flexbox para el body */
+    flex-direction: column; /* Apila los elementos hijos del body (header, main, footer) verticalmente */
+    min-height: 100vh; /* El cuerpo de la página ocupa al menos el 100% de la altura de la ventana */
+}
+
+/* Header y Barra de Navegación */
+header {
+    background-color: #D2D240; /* Color preestablecido del header */
+    padding: 10px 0; /* Padding superior e inferior, 0 lateral */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    /* Ajustado a space-around para mejor distribución visual de la imagen */
+    justify-content: space-around; /* Distribuye uniformemente los elementos */
+    align-items: center;
+    margin: 0 auto; /* Centra el menú */
+    padding: 0;
+    max-width: 1200px; /* Ancho máximo para el contenido del nav */
+}
+
+header nav ul li {
+    /* Eliminamos el margen fijo derecho, space-around lo manejará */
+    margin: 0 15px; /* Pequeño margen entre elementos para separación */
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0); /* Color preestablecido de los enlaces del nav */
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease; /* Transición suave para hover */
+    padding: 5px 10px; /* Para hacer el área de clic un poco más grande */
+    border-radius: 5px; /* Bordes redondeados para el efecto hover */
+}
+
+header nav ul li a:hover {
+    color: #506391; /* Color preestablecido para hover */
+    background-color: rgba(80, 99, 145, 0.1); /* Fondo sutil al pasar el ratón */
+}
+
+header nav ul li img {
+    width: 60px; /* Ajustado el tamaño del logo para que se vea más acorde a la imagen */
+    height: auto;
+    border-radius: 50%; /* Rounded logo */
+    vertical-align: middle; /* Alinea el logo con el texto */
+}
+
+
+/* Main content (parte principal) */
+main {
+    flex: 1; /* Esto es CLAVE para el sticky footer: hace que el main se estire */
+    padding: 20px 0; /* Espacio superior e inferior para el contenido */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
+    justify-content: flex-start; /* Alinea el contenido al inicio verticalmente */
+}
+
+.banner1 {
+    /* Si el banner1 es solo para espaciado o un fondo específico, podrías ajustar esto */
+    min-height: 50px; /* Espacio antes de las notificaciones si es necesario */
+    width: 100%; /* Ocupa todo el ancho disponible en main */
+    display: flex;
+    justify-content: center; /* Centra el contenido de banner1 si lo hubiera */
+    padding-bottom: 20px; /* Espacio debajo del banner si es necesario */
+}
+
+.notificaciones {
+    max-width: 600px; /* Ancho del contenedor de notificaciones */
+    width: 90%; /* Hace que sea un poco responsivo */
+    margin: 20px auto; /* Centra el bloque de notificaciones y le da margen */
+    padding: 20px;
+    background-color: #e0e0e0; /* Color preestablecido del fondo de notificaciones */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.notificaciones h1 {
+    color: #333; /* Color preestablecido del título de Notificaciones */
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+.not1 {
+    background-color: #6A86B3; /* Color preestablecido de cada notificación */
+    color: white; /* Color de texto preestablecido de notificaciones */
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.not1 h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.2em;
+}
+
+.not1 p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+
+/* Footer (Pie de página) */
+footer {
+    display: flex;
+    flex-direction: row; /* Preestablecido como fila */
+    background-color: #D2D240; /* Color preestablecido del footer */
+    color: black; /* Color de texto preestablecido del footer */
+    padding: 20px 0; /* Ajustado el padding para dar más espacio vertical, 0 lateral */
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    /* position: relative; bottom: 0; ya no son necesarios con el sticky footer de Flexbox en body */
+    margin-top: auto; /* CLAVE: Empuja el footer hacia abajo si el contenido es corto */
+    justify-content: center; /* Centra el contenido del footer */
+}
+
+footer .contacto {
+    display: flex;
+    justify-content: space-around; /* Preestablecido como space-between, ajustado para distribuir mejor */
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    gap: 20px; /* Espacio entre los bloques del footer */
+    width: 100%;
+    max-width: 900px; /* Ancho máximo para el contenido del footer */
+    margin: 0 auto; /* Centra el contenido del footer */
+    padding: 0 20px; /* Padding horizontal */
+}
+
+
+footer .contactanos {
+    display: flex;
+    /* Ajustado a columna para que el teléfono, mail, dirección se apilen */
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los ítems de contacto */
+    color: rgb(0,0,0); /* Color preestablecido del texto de contacto */
+    align-items: flex-start; /* Alinea los ítems a la izquierda dentro de su columna */
+}
+
+footer .contactanos h2 {
+    /* Este h2 no aparece en las imágenes para el footer, pero mantengo su estilo si es necesario */
+    color: rgb(0,0,0); /* Color preestablecido del título "Contáctanos" */
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+footer .contactanos div { /* Para cada línea de contacto (teléfono, mail, dirección) */
+    display: flex;
+    align-items: center; /* Alinea el icono y el texto en la misma línea */
+    /* margin-bottom: 10px; -- el gap en .contactanos ya maneja el espacio */
+}
+
+footer .contactanos i {
+    font-size: 1.2em; /* Ajustado a un tamaño más común para iconos de contacto */
+    margin-right: 10px; /* Espaciado entre ícono y texto */
+    color: rgb(0, 0, 0); /* Color preestablecido de los íconos */
+}
+
+footer .contactanos p {
+    margin: 0; /* Elimina el margen por defecto del párrafo */
+    line-height: 1.3;
+    color: rgb(0, 0, 0); /* Color preestablecido del texto del párrafo de contacto */
+}
+
+footer .boton-contacto {
+    display: flex; /* Para asegurar que el botón se posicione correctamente */
+    justify-content: center; /* Centra el botón si es un bloque propio */
+    align-items: center;
+    /* margin-right: 60px; -- Eliminado para que space-around en .contacto funcione mejor */
+}
+
+footer .boton-contacto button {
+    background-color: #ffffff; /* Color preestablecido del fondo del botón */
+    color: rgb(76, 108, 136); /* Color preestablecido del texto del botón */
+    height: auto;
+    padding: 10px 20px; /* Ajustado el padding del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold; /* Negrita para el texto del botón */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+footer .boton-contacto button a {
+    color: rgb(0, 0, 0); /* Color preestablecido del enlace dentro del botón */
+    text-decoration: none;
+}
+
+footer .boton-contacto button:hover {
+    background-color: rgb(76, 108, 136); /* Color de fondo al pasar el ratón */
+}
+
+footer .boton-contacto button:hover a {
+    color: #FFFFFF; /* Color de texto blanco al pasar el ratón */
+}
+
+
+/* Media Queries para responsividad (ajustes para pantallas más pequeñas) */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column; /* Apila los ítems del nav en columnas */
+        align-items: center;
+        gap: 10px; /* Espacio entre los ítems apilados */
+    }
+
+    header nav ul li {
+        margin: 0; /* Elimina el margen lateral cuando se apilan */
+    }
+
+    footer .contacto {
+        flex-direction: column; /* Apila los bloques del footer en columnas */
+        align-items: center;
+        text-align: center;
+    }
+
+    footer .contactanos {
+        align-items: center; /* Centra el texto de contacto cuando se apila */
+        margin-bottom: 20px;
+        gap: 5px; /* Reduce el espacio entre los ítems de contacto apilados */
+    }
+
+    footer .contactanos div {
+        flex-direction: column; /* Apila icono y texto de contacto */
+        align-items: center;
+        margin-bottom: 0; /* Elimina el margen inferior entre divs de contacto */
+    }
+
+    footer .contactanos i {
+        margin-right: 0;
+        margin-bottom: 5px; /* Espacio entre icono y texto apilados */
+    }
+
+    footer .boton-contacto {
+        margin-right: 0; /* Elimina el margen fijo en móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    header nav ul li img {
+        width: 50px; /* Reduce un poco más el logo en pantallas muy pequeñas */
+    }
+}
