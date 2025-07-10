@@ -9,12 +9,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="assets/styles/chat-JuntAI.css">
 
+  <script src="assets/js/chat-JuntAI.js" defer></script>
 </head>
 <body>
 <header>
   <nav>
     <ul>
-      <li><img src="assets/images/JUNTOLOGO.png" height="203" width="210"/></li>
+      <li><img src="assets/images/JUNTOLOGO.png" height="203" width="210" alt="Logo Junto"/></li>
       <li><a href="../index.html">¿Qué es Junto?</a></li>
       <li><a href="sobrenosotros1.html">Sobre Nosotros</a></li>
       <li><a href="comunidad1.html">Comunidad</a></li>
@@ -26,34 +27,31 @@
 <main>
   <aside class="menu-lateral">
     <h2>Historial Junto</h2>
-    <section class="historial-ai"><div class="tema">
-      <h3>Tema 1: Higiene del Sueño</h3>
-      <p class="descripcion">"¿Qué hábitos nocturnos favorecen un descanso profundo y reparador?"</p>
-      <p class="fecha">25/05/2025</p>
-      <a href="https://www.cdc.gov/sleep/about_sleep/sleep_hygiene.html" target="_blank">Ver más</a>
-    </div>
-
+    <section class="historial-ai">
+      <div class="tema">
+        <h3>Tema 1: Higiene del Sueño</h3>
+        <p class="descripcion">"¿Qué hábitos nocturnos favorecen un descanso profundo y reparador?"</p>
+        <p class="fecha">25/05/2025</p>
+        <a href="https://www.cdc.gov/sleep/about_sleep/sleep_hygiene.html" target="_blank">Ver más</a>
+      </div>
       <div class="tema">
         <h3>Tema 2: Autocuidado Digital</h3>
         <p class="descripcion">"Consejos para regular el uso de pantallas y proteger tu bienestar visual y mental."</p>
         <p class="fecha">26/05/2025</p>
         <a href="https://kidshealth.org/es/teens/digital-health.html" target="_blank">Ver más</a>
       </div>
-
       <div class="tema">
         <h3>Tema 3: Hidratación Inteligente</h3>
         <p class="descripcion">"¿Cuánta agua realmente necesita tu cuerpo cada día y cómo recordarlo?"</p>
         <p class="fecha">27/05/2025</p>
         <a href="https://www.cdc.gov/healthyweight/spanish/healthy_eating/water-and-healthier-drinks.html" target="_blank">Ver más</a>
       </div>
-
       <div class="tema">
         <h3>Tema 4: Postura Corporal</h3>
         <p class="descripcion">"Errores comunes al sentarse frente al computador y cómo corregirlos."</p>
         <p class="fecha">28/06/2025</p>
         <a href="https://medlineplus.gov/spanish/posture.html" target="_blank">Ver más</a>
       </div>
-
       <div class="tema">
         <h3>Tema 5: Alimentación Consciente</h3>
         <p class="descripcion">"Aprende a escuchar tu cuerpo al comer y mejorar tu relación con los alimentos."</p>
@@ -66,92 +64,123 @@
   <section class="chat">
     <h1 class="titulo-juntai">JuntAI</h1>
     <h2 class="titulo-consulta">Hola, soy JuntAI ¿Cuál es su consulta?</h2>
-    <div class="input-consulta-container">
-      <form id="consultaForm" style="display: flex; width: 100%;">
-        <input id="consulta" class="input-consulta" type="text" required placeholder="Di Hola! a JuntAI">
-        <button type="submit" class="enviar-boton"><i class="fas fa-paper-plane"></i></button>
-      </form>
+
+    <div class="chat-container">
+      <div id="chatMessages" class="chat-messages">
+        <div class="chat-message junt-ai-message">
+          <img class="message-avatar" src="assets/images/JUNTOLOGO.png" alt="JuntAI Avatar"/>
+          <div class="message-text"><p>Hola, te saluda JuntAI. Estoy aquí para poder resolver cada una de tus consultas.</p></div>
+        </div>
+      </div>
+
+      <div class="chat-input-area">
+        <div class="action-buttons-left">
+          <button id="cameraBtn" class="action-button"><i class="fas fa-camera"></i></button>
+          <button id="microphoneBtn" class="action-button"><i class="fas fa-microphone"></i></button>
+        </div>
+
+        <form id="consultaForm">
+          <textarea id="chatInput" class="input-consulta" placeholder="Di Hola! a JuntAI" rows="1" required></textarea>
+          <button type="submit" class="enviar-boton"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
     </div>
-    <div id="respuestas-container"></div>
   </section>
 </main>
 
+<div id="feedbackModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button" id="closeFeedbackModal">&times;</span>
+    <h2>Estamos aquí para ti</h2>
+    <p>Parece que podríamos estar abordando temas sensibles como la ansiedad o la depresión. Queremos recordarte que no estás solo/a.</p>
+    <p>Si sientes que necesitas apoyo profesional, te recomendamos considerar las siguientes opciones:</p>
+    <ul>
+      <li>**Buscar ayuda profesional:** Un psicólogo o terapeuta puede ofrecerte herramientas y estrategias personalizadas.</li>
+      <li>**Hablar con alguien de confianza:** Compartir tus sentimientos con amigos, familiares o un mentor puede ser un gran alivio.</li>
+      <li>**Practicar el autocuidado:** Actividades como meditación, ejercicio suave o pasatiempos pueden mejorar tu bienestar.</li>
+    </ul>
+    <p>Recuerda que buscar ayuda es un signo de fortaleza.</p>
+    <button id="feedbackGotItBtn" class="modal-button">Entendido</button>
+    <button id="feedbackMoreInfoBtn" class="modal-button">Más información</button>
+  </div>
+</div>
+
+<div id="privacyModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button" id="closePrivacyModal">&times;</span>
+    <h2>Configuración de Privacidad</h2>
+    <p>En Junto, nos preocupamos por tu privacidad. Utilizamos inteligencia artificial para analizar tu voz y tu rostro (solo si la cámara está activa) con el fin de detectar patrones de emociones que nos permitan ofrecerte una atención más personalizada y proactiva. Tus datos se procesan localmente y no se almacenan sin tu consentimiento explícito.</p>
+
+    <div class="privacy-setting">
+      <label for="voiceAnalysisToggle">Análisis de Voz (IA)</label>
+      <label class="switch">
+        <input type="checkbox" id="voiceAnalysisToggle" checked>
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <div class="privacy-setting">
+      <label for="facialAnalysisToggle">Análisis Facial (IA)</label>
+      <label class="switch">
+        <input type="checkbox" id="facialAnalysisToggle" checked>
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <p class="privacy-note">Puedes cambiar estas configuraciones en cualquier momento. Desactivar el análisis podría reducir la capacidad de JuntAI para ofrecerte apoyo emocional proactivo.</p>
+
+    <button id="savePrivacyBtn" class="modal-button">Guardar Preferencias</button>
+  </div>
+</div>
 <footer>
-  <section class="contacto">
-    <div class="contactanos">
-      <h2>Contáctanos</h2>
-      <div class="telefono">
+  <div class="footer-main-content">
+    <div class="footer-section contact-info">
+      <h4>Contáctanos</h4>
+      <div class="contact-item">
         <i class="fas fa-phone-alt"></i>
         <p>+51 953 967 934<br>01 534 6967</p>
       </div>
-      <div class="mail">
+      <div class="contact-item">
         <i class="fas fa-envelope"></i>
         <p>contacto@junto.com<br>info@junto.pe</p>
       </div>
-      <div class="direccion">
+      <div class="contact-item">
         <i class="fas fa-map-marker-alt"></i>
         <p>Av. Salaverry 234<br>Lima, Perú</p>
       </div>
+      <button class="footer-button"><a href="contactanos.html">Contáctanos</a></button>
+      <button id="openPrivacyBtn" class="footer-button">Privacidad</button>
     </div>
-    <div class="boton-contacto">
-      <button><a href="contactanos.html">Contáctanos</a></button>
+
+    <div class="footer-section footer-links">
+      <h4>Legal</h4>
+      <a href="https://www.mindef.gob.pe/uaip/politica_aip.pdf" target="_blank">Política de Privacidad</a>
+      <a href="https://repocaslit.minedu.gob.pe/static/documents/T%C3%A9rminosPrivacidad.pdf" target="_blank">Términos y Condiciones</a>
+      <a href="https://www.defensoria.gob.pe/wp-content/uploads/2019/11/Manual-de-Protecci%C3%B3n-de-Datos-Personales.pdf" target="_blank">Protección de Datos</a>
     </div>
-  </section>
+
+    <div class="footer-section footer-social">
+      <h4>Síguenos</h4>
+      <div class="social-icons-group">
+        <a href="#" aria-label="Facebook">
+          <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook" class="social-icon"/>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <img src="assets/images/instagram.png" alt="Instagram" class="social-icon"/>
+        </a>
+        <a href="#" aria-label="Twitter">
+          <img src="https://cdn-icons-png.flaticon.com/512/145/145812.png" alt="Twitter" class="social-icon"/>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-section footer-brand">
+      <img src="assets/images/JUNTOLOGO.png" alt="Logo Junto"/>
+      <p>JUNTO</p>
+      <small>© 2025 Todos los derechos reservados</small>
+    </div>
+  </div>
 </footer>
-
-<script>
-  document.getElementById('consultaForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // hace que la pagina no se refresque sin queres
-
-    // obtiene los inputs de los usuarios
-    const consultaTexto = document.getElementById('consulta').value.trim().toLowerCase();
-    const respuestasContainer = document.getElementById('respuestas-container');
-
-    let nuevaRespuesta = document.createElement('div');
-    nuevaRespuesta.className = 'respuesta-ai'; // Use CSS for styling
-    nuevaRespuesta.style.display = 'flex';
-    nuevaRespuesta.style.alignItems = 'flex-start';
-    nuevaRespuesta.style.marginTop = '10px';
-
-    // Avatar
-    let avatar = document.createElement('div');
-    avatar.className = 'avatar'; // Add a class for styling
-    avatar.innerHTML = `<span style="color: white; font-size: 20px;">AI</span>`; // Fixed string interpolation
-
-    // prepara los cuadros de respuesta
-    let respuestaContenido = document.createElement('div');
-    respuestaContenido.style.maxWidth = '400px';
-
-    // respuestas
-    if (consultaTexto === "hola") {
-      respuestaContenido.innerHTML = `<p>Hola, te saluda JuntAI. Estoy aquí para poder resolver cada una de tus consultas.</p>`;
-    } else if (consultaTexto.includes("noticias sobre depresión")) {
-      respuestaContenido.innerHTML = `
-                    <div>
-                        <p>Te comparto noticias sobre salud emocional:</p>
-                        <a href="https://www.gob.pe/institucion/minsa/noticias/1056686-minsa-participo-en-la-inauguracion-de-la-feria-apec-ciudadano-2024"
-                           target="_blank"
-                           style="color: #FFD700; text-decoration: underline;">
-                           Se inaugura  la Feria APEC Ciudadano 2024
-                        </a>
-                        <p>En esta noticia, el MINSA participó en la inauguración destacando la importancia de la salud pública y el compromiso con el bienestar ciudadano.</p>
-                    </div>
-                `;
-    } else if (consultaTexto === "gracias") {
-      respuestaContenido.innerHTML = `<p>No dudes en consultarme cualquier otra duda que tengas.</p>`;
-    } else {
-      respuestaContenido.innerHTML = `<p>JuntAI dice: No estoy seguro de cómo responder a eso. ¿Podrías intentar hacer otra consulta?</p>`;
-    }
-
-    // añade elementos al container
-    nuevaRespuesta.appendChild(avatar);
-    nuevaRespuesta.appendChild(respuestaContenido);
-    respuestasContainer.appendChild(nuevaRespuesta);
-
-    // limpia las inputs
-    document.getElementById('consulta').value = '';
-  });
-</script>
-
 </body>
 </html>
+

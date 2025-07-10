@@ -11,8 +11,9 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Header (Navegación) */
 header nav {
-    background: #D2D240;
+    background: #D2D240; /* Amarillo mostaza */
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -25,6 +26,7 @@ header nav ul {
     display: flex;
     padding: 0;
     margin: 0;
+    align-items: center;
 }
 
 header nav ul li {
@@ -44,7 +46,32 @@ header nav ul li a:hover {
 header nav ul li img{
     width: 50px;
     height: auto;
-    border-radius: 50%; /* Rounded logo */
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.boton-cuenta a {
+    background-color: #307FD9; /* Azul fuerte */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-cuenta a:hover {
+    background-color: #5097E9;
+}
+
+/* Main Layout */
+main {
+    display: flex;
+    flex-grow: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Menu lateral */
@@ -53,107 +80,819 @@ header nav ul li img{
     color: #FFF;
     width: 220px;
     padding: 20px;
-    height: calc(100vh - 60px);
-    position: fixed;
+    height: calc(100vh - 100px);
+    position: sticky;
+    top: 20px;
+    left: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
+    border-radius: 10px;
+    flex-shrink: 0;
 }
 
 .menu-lateral h2 {
     margin-top: 0;
     font-size: 22px;
-
+    border-bottom: 2px solid #FFF;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.tema {
+.historial-ai .tema {
     background: #FFF;
     border-radius: 10px;
     padding: 15px;
     margin-bottom: 15px;
     color: #028490;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.tema:hover {
+.historial-ai .tema:hover {
     transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.tema h3 {
+.historial-ai .tema h3 {
     margin: 0;
     font-size: 18px;
+    color: #307FD9;
 }
 
-.descripcion {
+.historial-ai .tema .descripcion {
     margin-top: 10px;
     font-size: 14px;
+    color: #555;
 }
 
-.fecha {
+.historial-ai .tema .fecha {
     color: #A9A9A9;
     font-size: 12px;
     text-align: right;
     margin-top: 10px;
 }
 
-/* Estilos para el AI */
+.historial-ai .tema a {
+    color: #D2D240;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    display: block;
+    text-align: right;
+}
+
+.historial-ai .tema a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el Chat Section */
+.chat {
+    flex-grow: 1;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
 
 .titulo-juntai {
     font-size: 24px;
     color: #000000;
-    margin-left: 300px; /* Ajustado para que la "S" no sea tapada */
     text-align: left;
-    margin-top: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 0;
 }
 
 .titulo-consulta {
-    font-size: 24px;
-    color: #000000;
+    font-size: 20px;
+    color: #555555;
     text-align: center;
-    margin: 40px 0;
+    margin: 20px 0;
 }
 
-/* Estilos para el input de consulta */
-.input-consulta-container {
+/* Contenedor principal del chat (el que contiene mensajes e input) */
+.chat-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fcfcfc;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+    min-height: 400px;
+    max-height: 600px;
+}
+
+/* Área de mensajes */
+.chat-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 80%;
+}
+
+.message-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid #307FD9;
+}
+
+.junt-ai-message .message-avatar {
+    background-color: #D2D240;
+}
+
+.user-message .message-avatar {
+    background-color: #7994A4;
+}
+
+.message-text {
+    padding: 10px 15px;
+    border-radius: 18px;
+    position: relative;
+    word-wrap: break-word;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.user-message {
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.user-message .message-text {
+    background-color: #D2D240;
+    color: black;
+    border-bottom-right-radius: 2px;
+}
+
+.junt-ai-message {
+    align-self: flex-start;
+}
+
+.junt-ai-message .message-text {
+    background-color: #7994A4;
+    color: white;
+    border-bottom-left-radius: 2px;
+}
+
+/* Área de Input y Botón de Envío */
+.chat-input-area {
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+    gap: 10px;
+}
+
+.action-buttons-left {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.action-button {
+    background-color: #D2D240;
+    color: black;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.action-button:hover {
+    background-color: #FFC107;
+    transform: translateY(-1px);
+}
+
+/* Estilos para el formulario de chat */
+#consultaForm {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-end;
     position: relative;
-    width: 320px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .input-consulta {
-    width: 100%;
-    padding: 10px 40px 10px 10px; /* Espacio adicional a la derecha para el Ã­cono */
-    border-radius: 8px;
-    border: 1px solid #cccccc;
-    background: #307FD9;
-    color: white;
+    flex-grow: 1;
+    padding: 10px 40px 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #307FD9;
+    background: #E0F2F1;
+    color: #333;
+    font-size: 1em;
+    resize: none;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.input-consulta:focus {
+    outline: none;
+    border-color: #506391;
+    box-shadow: 0 0 5px rgba(80, 99, 145, 0.3);
 }
 
 .enviar-boton {
-    position: absolute;
-    right: 10px;
-    background: none;
+    background-color: #307FD9;
+    color: white;
     border: none;
-    cursor: pointer;
-    color: #ffffff;
-    font-size: 20px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
     display: flex;
+    justify-content: center;
     align-items: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0;
+    margin-left: -35px; /* Ajusta este valor si el icono no se superpone bien */
 }
 
-/* Chat response styles */
-.respuesta-ai {
-    margin-top: 20px;
-    padding: 10px;
+.enviar-boton:hover {
+    background-color: #5097E9;
+    transform: translateY(-1px);
+}
+
+/* Estilos para los botones de feedback dentro de la respuesta de JuntAI */
+.feedback-options {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.feedback-button {
+    background-color: #D2D240;
+    color: black;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.feedback-button:hover {
+    background-color: #FFC107;
+}
+
+/* Modal base styles (feedbackModal y privacyModal) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    text-align: center;
+    color: #333;
+}
+
+.modal-content h2 {
+    color: #307FD9;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.modal-content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.modal-content ul li {
+    background-color: #e0f2f1;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-left: 4px solid #307FD9;
     border-radius: 5px;
-    background: #7994A4;
-    color: #FFF;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    color: #333;
+}
+
+.modal-content ul li strong {
+    color: #028490;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-button {
+    background-color: #307FD9;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 10px 5px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-button:hover {
+    background-color: #5097E9;
+}
+
+/* Estilos específicos para el Modal de Privacidad */
+.privacy-setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+}
+
+.privacy-setting label {
+    font-weight: bold;
+    color: #333;
+}
+
+.privacy-note {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 20px;
+}
+
+
+/* Switch toggle styles (para los checkboxes de privacidad) */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #307FD9; /* Azul cuando está activo */
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #307FD9;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+/* Footer */
+footer {
+    background-color: #2D2D2D;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: auto;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.contacto {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+}
+
+.contactanos {
+    flex: 1;
+    min-width: 250px;
+    margin: 15px;
+    text-align: left;
+}
+
+.contactanos h2 {
+    color: #D2D240;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.contactanos div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.contactanos div i {
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: #028490;
+}
+
+.contactanos p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.boton-contacto {
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-width: 200px;
+    gap: 10px; /* Espacio entre los botones del footer */
+}
+
+.boton-contacto button {
+    background-color: #028490;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.boton-contacto button:hover {
+    background-color: #04A6B5;
+}
+
+.boton-contacto button a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+        padding: 15px;
+        margin: 15px auto;
+    }
+
+    .menu-lateral {
+        width: 100%;
+        position: relative;
+        top: auto;
+        left: auto;
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+
+    .chat {
+        padding-left: 0;
+    }
+
+    .chat-message {
+        max-width: 95%;
+    }
+
+    .chat-input-area {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .action-buttons-left {
+        width: 100%;
+        justify-content: center;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .action-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5em;
+    }
+
+    #consultaForm {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .input-consulta {
+        width: calc(100% - 30px);
+        padding-right: 15px;
+    }
+
+    .enviar-boton {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        border-radius: 8px;
+        margin-left: 0;
+        background-color: #307FD9;
+        color: white;
+    }
+    .enviar-boton i {
+        margin-right: 5px;
+    }
+
+}
+
+@media (max-width: 600px) {
+    header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    header nav ul li {
+        margin: 5px 10px;
+    }
+
+    header nav ul li img {
+        height: 40px;
+    }
+
+    .titulo-juntai {
+        font-size: 1.5em;
+    }
+
+    .titulo-consulta {
+        font-size: 1em;
+    }
+
+    .feedback-button {
+        padding: 6px 12px;
+        font-size: 0.85em;
+    }
+}
+/* Footer */
+footer {
+    background-color: #D2D240; /* Amarillo mostaza */
+    color: black; /* Texto general del footer en negro para contraste */
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: auto;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.footer-main-content {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas pequeñas */
+    justify-content: space-around; /* Distribuye el espacio entre las secciones */
+    max-width: 1200px; /* Ancho máximo para el contenido del footer */
+    margin: 0 auto; /* Centra el contenedor del footer */
+    gap: 30px; /* Espacio entre las columnas */
+    padding: 10px 0; /* Padding interno para separación del borde del footer */
+}
+
+.footer-section {
+    flex: 1; /* Permite que cada sección crezca y se encoja */
+    min-width: 200px; /* Ancho mínimo para cada columna antes de envolverse */
+    margin-bottom: 20px; /* Espacio inferior para cuando las columnas se apilan */
+    text-align: left; /* Alinea el texto a la izquierda dentro de cada sección */
+}
+
+.footer-section h4 {
+    color: #307FD9; /* Azul fuerte para los títulos */
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    border-bottom: 1px solid rgba(48, 127, 217, 0.3); /* Línea sutil bajo el título */
+    padding-bottom: 5px;
+}
+
+/* Estilos para la sección de contacto */
+.contact-info .contact-item {
+    display: flex;
+    align-items: flex-start; /* Alinea el icono y el texto arriba */
+    margin-bottom: 10px;
+}
+
+.contact-info .contact-item i {
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: #028490; /* Azul verdoso para los iconos de contacto (Font Awesome) */
+    flex-shrink: 0; /* Evita que el icono se encoja */
+}
+
+.contact-info .contact-item p {
+    margin: 0;
+    line-height: 1.4;
+    color: #333; /* Texto más oscuro para legibilidad */
+}
+
+/* Estilos para los enlaces legales */
+.footer-links a {
+    display: block; /* Cada enlace en su propia línea */
+    color: #555; /* Un gris oscuro para los enlaces */
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #307FD9; /* Azul al pasar el ratón */
+    text-decoration: underline;
+}
+
+
+.social-icons-group {
+    display: flex;
+    gap: 15px; /* Espacio entre los iconos */
+    margin-top: 10px;
+}
+
+.social-icons-group a {
+    display: flex; /* Para centrar la imagen si es necesario */
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons-group .social-icon { /* La clase 'social-icon' aplicada a las IMG */
+    width: 35px; /* Tamaño de tus iconos de redes sociales */
+    height: 35px;
+    transition: transform 0.2s ease;
+}
+
+.social-icons-group .social-icon:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+}
+
+/* Estilos para el botón del footer (Contáctanos, Privacidad) */
+.footer-button {
+    background-color: #028490; /* Azul verdoso para el botón */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 15px;
+    margin-right: 10px; /* Espacio entre botones si hay varios */
+    transition: background-color 0.3s ease;
+}
+
+.footer-button:hover {
+    background-color: #04A6B5;
+}
+
+.footer-button a {
+    color: inherit; /* Hereda el color blanco del botón */
+    text-decoration: none;
+}
+
+/* Estilos para la sección de marca y copyright */
+.footer-brand {
+    text-align: center; /* Centra el contenido de esta sección */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinea items al centro horizontalmente */
+    justify-content: center; /* Centra items verticalmente */
+}
+
+.footer-brand img {
+    max-width: 80px; /* Tamaño del logo en el footer */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.footer-brand small {
+    display: block;
+    margin-top: 5px;
+    color: #777;
+    font-size: 0.85em;
+}
+
+/* Media Queries para Responsividad del Footer */
+@media (max-width: 768px) {
+    .footer-main-content {
+        flex-direction: column; /* Apila las columnas verticalmente */
+        align-items: center; /* Centra las columnas apiladas */
+        gap: 20px;
+    }
+
+    .footer-section {
+        width: 90%; /* Ocupa casi todo el ancho disponible */
+        min-width: unset; /* Reinicia el min-width */
+        text-align: center; /* Centra el texto en columnas apiladas */
+    }
+
+    .footer-section h4 {
+        border-bottom: none; /* Quita la línea de abajo en móvil para un look más limpio */
+        padding-bottom: 0;
+    }
+
+    .social-icons-group {
+        justify-content: center; /* Centra los iconos sociales */
+    }
+
+    .contact-info .contact-item {
+        justify-content: center; /* Centra los elementos de contacto */
+        text-align: center; /* Centra el texto del contacto */
+    }
 }

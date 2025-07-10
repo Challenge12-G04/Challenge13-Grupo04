@@ -179,63 +179,175 @@ header nav ul li img{
     border-radius: 10px;
 }
 
-
-
-/* Footer *//* Footer */
+/* Footer */
 footer {
-    display: flex;
-    flex-direction: row;
-    background-color: #D2D240;
-    color: black;
-    padding: 10px 20px;
+    background-color: #D2D240; /* Amarillo mostaza */
+    color: black; /* Texto general del footer en negro para contraste */
+    padding: 30px 20px;
     text-align: center;
+    margin-top: auto;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.footer-main-content {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas pequeñas */
+    justify-content: space-around; /* Distribuye el espacio entre las secciones */
+    max-width: 1200px; /* Ancho máximo para el contenido del footer */
+    margin: 0 auto; /* Centra el contenedor del footer */
+    gap: 30px; /* Espacio entre las columnas */
+    padding: 10px 0; /* Padding interno para separación del borde del footer */
+}
+
+.footer-section {
+    flex: 1; /* Permite que cada sección crezca y se encoja */
+    min-width: 200px; /* Ancho mínimo para cada columna antes de envolverse */
+    margin-bottom: 20px; /* Espacio inferior para cuando las columnas se apilan */
+    text-align: left; /* Alinea el texto a la izquierda dentro de cada sección */
+}
+
+.footer-section h4 {
+    color: #307FD9; /* Azul fuerte para los títulos */
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    border-bottom: 1px solid rgba(48, 127, 217, 0.3); /* Línea sutil bajo el título */
+    padding-bottom: 5px;
+}
+
+/* Estilos para la sección de contacto */
+.contact-info .contact-item {
+    display: flex;
+    align-items: flex-start; /* Alinea el icono y el texto arriba */
+    margin-bottom: 10px;
+}
+
+.contact-info .contact-item i {
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: #028490; /* Azul verdoso para los iconos de contacto (Font Awesome) */
+    flex-shrink: 0; /* Evita que el icono se encoja */
+}
+
+.contact-info .contact-item p {
+    margin: 0;
+    line-height: 1.4;
+    color: #333; /* Texto más oscuro para legibilidad */
+}
+
+/* Estilos para los enlaces legales */
+.footer-links a {
+    display: block; /* Cada enlace en su propia línea */
+    color: #555; /* Un gris oscuro para los enlaces */
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #307FD9; /* Azul al pasar el ratón */
+    text-decoration: underline;
+}
+
+
+.social-icons-group {
+    display: flex;
+    gap: 15px; /* Espacio entre los iconos */
+    margin-top: 10px;
+}
+
+.social-icons-group a {
+    display: flex; /* Para centrar la imagen si es necesario */
     align-items: center;
-    width: 100%;
-    position: relative;
-    bottom: 0;
     justify-content: center;
 }
 
-footer .contacto {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    width: 100%;
+.social-icons-group .social-icon { /* La clase 'social-icon' aplicada a las IMG */
+    width: 35px; /* Tamaño de tus iconos de redes sociales */
+    height: 35px;
+    transition: transform 0.2s ease;
 }
 
-
-footer .contactanos {
-    display: flex;
-    gap: 30px;
-    color: rgb(0,0,0);
-
+.social-icons-group .social-icon:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
 }
 
-footer .contactanos i {
-    font-size: 20px; /* Ajusta el tamaño del ícono */
-    color: rgb(255, 255, 255); /* Cambia el color del ícono */
-}
-
-footer .contactanos p {
-    margin-left: 10px; /* Espaciado entre ícono y texto */
-    color: black;
-}
-
-footer .boton-contacto button {
-
-    background-color: #ffffff;
-    color: rgb(76, 108, 136);
-    height: auto;
-    padding: 10px 15px;
+/* Estilos para el botón del footer (Contáctanos, Privacidad) */
+.footer-button {
+    background-color: #028490; /* Azul verdoso para el botón */
+    color: white;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 60px;
+    font-size: 0.9em;
+    margin-top: 15px;
+    margin-right: 10px; /* Espacio entre botones si hay varios */
+    transition: background-color 0.3s ease;
 }
 
-footer .boton-contacto button a {
-    color: rgb(0, 0, 0);
+.footer-button:hover {
+    background-color: #04A6B5;
+}
+
+.footer-button a {
+    color: inherit; /* Hereda el color blanco del botón */
     text-decoration: none;
+}
+
+/* Estilos para la sección de marca y copyright */
+.footer-brand {
+    text-align: center; /* Centra el contenido de esta sección */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinea items al centro horizontalmente */
+    justify-content: center; /* Centra items verticalmente */
+}
+
+.footer-brand img {
+    max-width: 80px; /* Tamaño del logo en el footer */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.footer-brand small {
+    display: block;
+    margin-top: 5px;
+    color: #777;
+    font-size: 0.85em;
+}
+
+/* Media Queries para Responsividad del Footer */
+@media (max-width: 768px) {
+    .footer-main-content {
+        flex-direction: column; /* Apila las columnas verticalmente */
+        align-items: center; /* Centra las columnas apiladas */
+        gap: 20px;
+    }
+
+    .footer-section {
+        width: 90%; /* Ocupa casi todo el ancho disponible */
+        min-width: unset; /* Reinicia el min-width */
+        text-align: center; /* Centra el texto en columnas apiladas */
+    }
+
+    .footer-section h4 {
+        border-bottom: none; /* Quita la línea de abajo en móvil para un look más limpio */
+        padding-bottom: 0;
+    }
+
+    .social-icons-group {
+        justify-content: center; /* Centra los iconos sociales */
+    }
+
+    .contact-info .contact-item {
+        justify-content: center; /* Centra los elementos de contacto */
+        text-align: center; /* Centra el texto del contacto */
+    }
 }

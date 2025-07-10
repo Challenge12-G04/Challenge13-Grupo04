@@ -1,7 +1,3 @@
-
-
-* Estilos generales */
-
 * {
     box-sizing: border-box; /* Asegura que padding y border se incluyan en el tamaño total */
 }
@@ -242,233 +238,220 @@ main {
     text-align: center;
 }
 
-/* Footer (estilos consistentes y corregidos) */
-footer {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #D2D240;
-    color: black;
-    padding: 20px;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-footer .contacto {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-grow: 1;
-}
-
-footer .contactanos {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: black;
-    white-space: nowrap;
-}
-
-footer .contactanos i {
-    font-size: 20px;
-    color: #506391;
-}
-
-footer .contactanos p {
-    margin: 0;
-    font-size: 0.9em;
-    line-height: 1.2;
-    color: black;
-}
-
-footer .boton-contacto {
-    display: flex;
-    align-items: center;
-}
-
-footer .boton-contacto button {
-    background-color: #ffffff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-footer .boton-contacto button a {
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-footer .boton-contacto button:hover {
-    background-color: #f0f0f0;
-}
-
-footer .footer-logo {
-    display: flex;
-    align-items: center;
-    margin-left: 20px;
-}
-
-footer .footer-logo img {
-    height: 70px;
-    width: auto;
-}
-
-/* Media Queries para Responsividad */
-@media (max-width: 768px) {
-    header nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    header nav ul li {
-        margin: 5px 0;
-    }
-
-    .detail-container {
-        padding: 20px;
-        max-width: 95%;
-    }
-    .back-link {
-        position: static;
-        margin-bottom: 20px;
-        justify-content: flex-start;
-    }
-    .detail-title {
-        font-size: 2.2em;
-    }
-    .detail-subtitle {
-        font-size: 1.1em;
-    }
-    .detail-section h2 {
-        font-size: 1.5em;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .detail-section h2 i {
-        margin-bottom: 5px;
-    }
-    .action-button {
-        width: 100%;
-        justify-content: center;
-    }
-
-    /* Footer responsividad */
-    footer {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-    }
-    footer .contacto {
-        flex-direction: column;
-        gap: 10px;
-    }
-    footer .contactanos {
-        justify-content: center;
-    }
-    footer .boton-contacto,
-    footer .footer-logo {
-        margin: 0;
-        width: 100%;
-        justify-content: center;
-    }
-}
 
 @media (max-width: 480px) {
     header nav ul li img {
         height: 40px;
     }
+
     header nav ul li a {
         padding: 8px 12px;
         font-size: 0.9em;
     }
+
     .detail-container {
         padding: 15px;
     }
+
     .detail-title {
         font-size: 1.8em;
     }
+
     .detail-subtitle {
         font-size: 1em;
     }
+
     .detail-section {
         padding: 15px;
     }
+
     .detail-section h2 {
         font-size: 1.3em;
     }
+
     .detail-section p, .detail-section ul li {
         font-size: 0.9em;
     }
+
     .rating {
         font-size: 1em;
     }
+
     .action-button {
         padding: 10px 15px;
         font-size: 0.9em;
     }
+}
+
+/* Footer */
+footer {
+    background-color: #D2D240; /* Amarillo mostaza */
+    color: black; /* Texto general del footer en negro para contraste */
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: auto;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.footer-main-content {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas pequeñas */
+    justify-content: space-around; /* Distribuye el espacio entre las secciones */
+    max-width: 1200px; /* Ancho máximo para el contenido del footer */
+    margin: 0 auto; /* Centra el contenedor del footer */
+    gap: 30px; /* Espacio entre las columnas */
+    padding: 10px 0; /* Padding interno para separación del borde del footer */
+}
+
+.footer-section {
+    flex: 1; /* Permite que cada sección crezca y se encoja */
+    min-width: 200px; /* Ancho mínimo para cada columna antes de envolverse */
+    margin-bottom: 20px; /* Espacio inferior para cuando las columnas se apilan */
+    text-align: left; /* Alinea el texto a la izquierda dentro de cada sección */
+}
+
+.footer-section h4 {
+    color: #307FD9; /* Azul fuerte para los títulos */
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    border-bottom: 1px solid rgba(48, 127, 217, 0.3); /* Línea sutil bajo el título */
+    padding-bottom: 5px;
+}
+
+/* Estilos para la sección de contacto */
+.contact-info .contact-item {
+    display: flex;
+    align-items: flex-start; /* Alinea el icono y el texto arriba */
+    margin-bottom: 10px;
+}
+
+.contact-info .contact-item i {
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: #028490; /* Azul verdoso para los iconos de contacto (Font Awesome) */
+    flex-shrink: 0; /* Evita que el icono se encoja */
+}
+
+.contact-info .contact-item p {
+    margin: 0;
+    line-height: 1.4;
+    color: #333; /* Texto más oscuro para legibilidad */
+}
+
+/* Estilos para los enlaces legales */
+.footer-links a {
+    display: block; /* Cada enlace en su propia línea */
+    color: #555; /* Un gris oscuro para los enlaces */
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #307FD9; /* Azul al pasar el ratón */
+    text-decoration: underline;
+}
 
 
-    /* Estilos para el pie de página */
-    /* Footer */
-    footer {
-        display: flex;
-        flex-direction: row;
-        background-color: #D2D240;
-        color: black;
-        padding: 10px 20px;
-        text-align: center;
-        align-items: center;
-        width: 100%;
-        position: relative;
-        bottom: 0;
-        justify-content: center;
+.social-icons-group {
+    display: flex;
+    gap: 15px; /* Espacio entre los iconos */
+    margin-top: 10px;
+}
+
+.social-icons-group a {
+    display: flex; /* Para centrar la imagen si es necesario */
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons-group .social-icon { /* La clase 'social-icon' aplicada a las IMG */
+    width: 35px; /* Tamaño de tus iconos de redes sociales */
+    height: 35px;
+    transition: transform 0.2s ease;
+}
+
+.social-icons-group .social-icon:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+}
+
+/* Estilos para el botón del footer (Contáctanos, Privacidad) */
+.footer-button {
+    background-color: #028490; /* Azul verdoso para el botón */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 15px;
+    margin-right: 10px; /* Espacio entre botones si hay varios */
+    transition: background-color 0.3s ease;
+}
+
+.footer-button:hover {
+    background-color: #04A6B5;
+}
+
+.footer-button a {
+    color: inherit; /* Hereda el color blanco del botón */
+    text-decoration: none;
+}
+
+/* Estilos para la sección de marca y copyright */
+.footer-brand {
+    text-align: center; /* Centra el contenido de esta sección */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinea items al centro horizontalmente */
+    justify-content: center; /* Centra items verticalmente */
+}
+
+.footer-brand img {
+    max-width: 80px; /* Tamaño del logo en el footer */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.footer-brand small {
+    display: block;
+    margin-top: 5px;
+    color: #777;
+    font-size: 0.85em;
+}
+
+/* Media Queries para Responsividad del Footer */
+@media (max-width: 768px) {
+    .footer-main-content {
+        flex-direction: column; /* Apila las columnas verticalmente */
+        align-items: center; /* Centra las columnas apiladas */
+        gap: 20px;
     }
 
-    footer .contacto {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        width: 100%;
+    .footer-section {
+        width: 90%; /* Ocupa casi todo el ancho disponible */
+        min-width: unset; /* Reinicia el min-width */
+        text-align: center; /* Centra el texto en columnas apiladas */
     }
 
-
-    footer .contactanos {
-        display: flex;
-        gap: 30px;
-        color: rgb(0,0,0);
-
+    .footer-section h4 {
+        border-bottom: none; /* Quita la línea de abajo en móvil para un look más limpio */
+        padding-bottom: 0;
     }
 
-    footer .contactanos i {
-        font-size: 20px; /* Ajusta el tamaño del ícono */
-        color: rgb(255, 255, 255); /* Cambia el color del ícono */
+    .social-icons-group {
+        justify-content: center; /* Centra los iconos sociales */
     }
 
-    footer .contactanos p {
-        margin-left: 10px; /* Espaciado entre ícono y texto */
-        color: black;
+    .contact-info .contact-item {
+        justify-content: center; /* Centra los elementos de contacto */
+        text-align: center; /* Centra el texto del contacto */
     }
-
-    footer .boton-contacto button {
-
-        background-color: #ffffff;
-        color: rgb(76, 108, 136);
-        height: auto;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-right: 60px;
-    }
-
-    footer .boton-contacto button a {
-        color: rgb(0, 0, 0);
-        text-decoration: none;
-    }
+}
