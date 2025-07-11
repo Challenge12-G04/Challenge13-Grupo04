@@ -72,12 +72,14 @@ main {
 
 .bloque-informativo {
     display: flex;
+    gap:40px;
     flex-direction: row;
     align-items: center;
+    justify-content: center;      /* Centra los elementos hijos horizontalmente */
     background-color: #F5E8D2;
     color: black;
     padding: 40px 20px;
-    margin-bottom: 40px;
+    margin: 0 auto 40px auto;     /* Centra la sección en la página */
     border-radius: 8px;
     text-align: center;
 }

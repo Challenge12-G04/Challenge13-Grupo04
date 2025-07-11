@@ -68,12 +68,14 @@ main {
 
 .bloque-informativo {
     display: flex;
+    gap:40px;
     flex-direction: row;
     align-items: center;
+    justify-content: center;      /* Centra los elementos hijos horizontalmente */
     background-color: #F5E8D2;
     color: black;
     padding: 40px 20px;
-    margin-bottom: 40px;
+    margin: 0 auto 40px auto;     /* Centra la sección en la página */
     border-radius: 8px;
     text-align: center;
 }
@@ -178,16 +180,42 @@ main {
 
 
 /* Sección salud-conectando */
-
+.bloque-informativo2 {
+    display: flex;
+    gap:40px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;      /* Centra los elementos hijos horizontalmente */
+    background-color: #F5E8D2;
+    color: black;
+    padding: 40px 20px;
+    margin: 0 auto 40px auto;     /* Centra la sección en la página */
+    border-radius: 8px;
+    text-align: center;
+}
 
 .imagen-container2 img {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
-
-
     border-radius: 6px;
     margin-bottom: 20px;
 }
+
+.contenido-texto2 {
+    max-width: 900px;
+}
+
+.contenido-texto2 h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.contenido-texto2 p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
 
 
 .boton-leermas2 button {

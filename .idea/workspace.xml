@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7817d886-7703-4ba3-80d5-e57e2d1bb10e" name="Changes" comment="commit page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Noticias.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/Noticias.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/Tecnologia.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/Tecnologia.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/styles/comunidad1.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/styles/comunidad1.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/styles/sobrenosotros1.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/styles/sobrenosotros1.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/comunidad1.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/comunidad1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sobrenosotros1.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/sobrenosotros1.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +94,7 @@
       <workItem from="1752186967688" duration="14000" />
       <workItem from="1752187092362" duration="17000" />
       <workItem from="1752212725232" duration="162000" />
-      <workItem from="1752235216793" duration="3727000" />
+      <workItem from="1752235216793" duration="7069000" />
     </task>
     <task id="LOCAL-00001" summary="commit page">
       <option name="closed" value="true" />
@@ -209,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752236789368</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="commit page">
+      <option name="closed" value="true" />
+      <created>1752239164340</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1752239164340</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -114,6 +114,7 @@ header nav ul li img{
 }
 
 .origen img {
+    max-width: 100%;
     width: 400px;
     height: 300px;
     margin-top: 20px;
@@ -245,7 +246,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: #307FD9; /* Azul al pasar el ratón */
+    color: #256BBD; /* Azul al pasar el ratón */
     text-decoration: underline;
 }
 
