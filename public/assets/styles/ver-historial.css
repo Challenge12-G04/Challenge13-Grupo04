@@ -2,16 +2,6 @@
     box-sizing: border-box; /* Asegura que padding y border se incluyan en el tamaño total */
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: black; /* Color preestablecido */
-    background-color: #FBF7EA; /* Color preestablecido */
-    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura del viewport */
-    display: flex; /* Habilita Flexbox para el body */
-    flex-direction: column; /* Apila los elementos hijos (header, main, footer) verticalmente */
-}
 
 /* Estilos para la barra de navegación */
 header nav {

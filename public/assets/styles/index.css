@@ -213,173 +213,237 @@ main h2{
 }
 /* Footer */
 footer {
-    background-color: #D2D240; /* Amarillo mostaza */
-    color: black; /* Texto general del footer en negro para contraste */
-    padding: 30px 20px;
+    background-color: #D2D240;
+    color: black;
+    padding: 35px 20px; /* Más padding */
     text-align: center;
     margin-top: auto;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15); /* Sombra más definida */
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .footer-main-content {
     display: flex;
-    flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas pequeñas */
-    justify-content: space-around; /* Distribuye el espacio entre las secciones */
-    max-width: 1200px; /* Ancho máximo para el contenido del footer */
-    margin: 0 auto; /* Centra el contenedor del footer */
-    gap: 30px; /* Espacio entre las columnas */
-    padding: 10px 0; /* Padding interno para separación del borde del footer */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px; /* Más espacio entre columnas */
+    padding: 10px 0;
 }
 
 .footer-section {
-    flex: 1; /* Permite que cada sección crezca y se encoja */
-    min-width: 200px; /* Ancho mínimo para cada columna antes de envolverse */
-    margin-bottom: 20px; /* Espacio inferior para cuando las columnas se apilan */
-    text-align: left; /* Alinea el texto a la izquierda dentro de cada sección */
+    flex: 1;
+    min-width: 220px; /* Ligeramente más ancho */
+    margin-bottom: 25px; /* Más espacio inferior */
+    text-align: left;
 }
 
 .footer-section h4 {
-    color: #307FD9; /* Azul fuerte para los títulos */
-    margin-bottom: 15px;
-    font-size: 1.3em;
-    border-bottom: 1px solid rgba(48, 127, 217, 0.3); /* Línea sutil bajo el título */
-    padding-bottom: 5px;
+    color: #307FD9;
+    margin-bottom: 18px; /* Más espacio */
+    font-size: 1.4em; /* Ligeramente más grande */
+    border-bottom: 2px solid rgba(48, 127, 217, 0.3);
+    padding-bottom: 8px;
 }
 
-/* Estilos para la sección de contacto */
 .contact-info .contact-item {
     display: flex;
-    align-items: flex-start; /* Alinea el icono y el texto arriba */
-    margin-bottom: 10px;
+    align-items: flex-start;
+    margin-bottom: 12px; /* Más espacio */
 }
 
 .contact-info .contact-item i {
-    font-size: 1.2em;
-    margin-right: 10px;
-    color: #028490; /* Azul verdoso para los iconos de contacto (Font Awesome) */
-    flex-shrink: 0; /* Evita que el icono se encoja */
+    font-size: 1.3em; /* Icono más grande */
+    margin-right: 12px;
+    color: #028490;
 }
 
 .contact-info .contact-item p {
     margin: 0;
-    line-height: 1.4;
-    color: #333; /* Texto más oscuro para legibilidad */
+    line-height: 1.5;
+    color: #444; /* Texto un poco más oscuro */
 }
 
-/* Estilos para los enlaces legales */
 .footer-links a {
-    display: block; /* Cada enlace en su propia línea */
-    color: #555; /* Un gris oscuro para los enlaces */
+    display: block;
+    color: #555;
     text-decoration: none;
-    margin-bottom: 8px;
-    transition: color 0.3s ease;
+    margin-bottom: 10px; /* Más espacio */
+    font-size: 0.98em; /* Ligeramente más grande */
 }
 
-.footer-links a:hover {
-    color: #307FD9; /* Azul al pasar el ratón */
+.footer-links a:hover,
+.footer-links a:focus {
+    color: #307FD9;
     text-decoration: underline;
+    transform: translateX(5px); /* Deslizamiento sutil */
 }
-
 
 .social-icons-group {
     display: flex;
-    gap: 15px; /* Espacio entre los iconos */
-    margin-top: 10px;
+    gap: 20px; /* Más espacio entre iconos */
+    margin-top: 15px;
+    justify-content: flex-start;
 }
 
 .social-icons-group a {
-    display: flex; /* Para centrar la imagen si es necesario */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.social-icons-group .social-icon { /* La clase 'social-icon' aplicada a las IMG */
-    width: 35px; /* Tamaño de tus iconos de redes sociales */
-    height: 35px;
-    transition: transform 0.2s ease;
+.social-icons-group .social-icon {
+    width: 40px; /* Ligeramente más grande */
+    height: 40px;
+    object-fit: contain;
 }
 
 .social-icons-group .social-icon:hover {
-    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+    transform: scale(1.15) rotate(5deg); /* Efecto de zoom y rotación */
 }
 
-/* Estilos para el botón del footer (Contáctanos, Privacidad) */
 .footer-button {
-    background-color: #028490; /* Azul verdoso para el botón */
+    background-color: #028490;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 22px; /* Más padding */
     border: none;
-    border-radius: 5px;
+    border-radius: 20px; /* Más redondeado */
     cursor: pointer;
-    font-size: 0.9em;
-    margin-top: 15px;
-    margin-right: 10px; /* Espacio entre botones si hay varios */
-    transition: background-color 0.3s ease;
+    font-size: 0.95em; /* Ligeramente más grande */
+    margin-top: 20px;
+    margin-right: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.footer-button:hover {
+.footer-button:hover,
+.footer-button:focus {
     background-color: #04A6B5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .footer-button a {
-    color: inherit; /* Hereda el color blanco del botón */
+    color: inherit;
     text-decoration: none;
 }
 
-/* Estilos para la sección de marca y copyright */
 .footer-brand {
-    text-align: center; /* Centra el contenido de esta sección */
+    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Alinea items al centro horizontalmente */
-    justify-content: center; /* Centra items verticalmente */
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-brand img {
-    max-width: 80px; /* Tamaño del logo en el footer */
+    max-width: 90px; /* Ligeramente más grande */
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .footer-brand p {
     margin: 5px 0;
     color: #333;
-    font-size: 1.1em;
+    font-size: 1.2em; /* Ligeramente más grande */
     font-weight: bold;
 }
 
 .footer-brand small {
     display: block;
-    margin-top: 5px;
+    margin-top: 8px;
     color: #777;
-    font-size: 0.85em;
+    font-size: 0.88em; /* Ligeramente más grande */
 }
 
 /* Media Queries para Responsividad del Footer */
 @media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        padding: 15px; /* Más padding en móvil */
+    }
+
+    .menu-lateral {
+        flex: none;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .chat {
+        flex: none;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .chat-message {
+        max-width: 98%; /* Más espacio en pantallas pequeñas */
+    }
+
+    .chat .titulo-juntai {
+        font-size: 2em;
+    }
+    .chat .titulo-consulta {
+        font-size: 1.1em;
+    }
+
+    .chat-input-area {
+        flex-wrap: wrap; /* Permite que los botones se envuelvan si hay poco espacio */
+        justify-content: center;
+    }
+
+    .chat-input-area .action-buttons-left {
+        width: 100%; /* Ocupa todo el ancho */
+        justify-content: center; /* Centra los botones de acción */
+        margin-bottom: 10px; /* Espacio debajo de los botones */
+    }
+
+    .chat-input-area form {
+        width: 100%;
+    }
+
     .footer-main-content {
-        flex-direction: column; /* Apila las columnas verticalmente */
-        align-items: center; /* Centra las columnas apiladas */
-        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
     }
 
     .footer-section {
-        width: 90%; /* Ocupa casi todo el ancho disponible */
-        min-width: unset; /* Reinicia el min-width */
-        text-align: center; /* Centra el texto en columnas apiladas */
+        width: 95%; /* Ocupa casi todo el ancho disponible */
+        min-width: unset;
+        text-align: center;
     }
 
     .footer-section h4 {
-        border-bottom: none; /* Quita la línea de abajo en móvil para un look más limpio */
+        border-bottom: none;
         padding-bottom: 0;
     }
 
     .social-icons-group {
-        justify-content: center; /* Centra los iconos sociales */
+        justify-content: center;
     }
 
     .contact-info .contact-item {
-        justify-content: center; /* Centra los elementos de contacto */
-        text-align: center; /* Centra el texto del contacto */
+        justify-content: center;
+        text-align: center;
+        flex-direction: column; /* Apila el icono y el texto */
+        align-items: center;
+    }
+
+    .contact-info .contact-item i {
+        margin-right: 0;
+        margin-bottom: 5px; /* Espacio entre icono y texto */
+    }
+
+    .modal-content {
+        padding: 25px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.6em;
+    }
+
+    .modal-content p {
+        font-size: 0.95em;
     }
 }
+

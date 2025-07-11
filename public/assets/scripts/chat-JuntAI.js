@@ -1,209 +1,98 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Referencias a elementos del DOM
+    console.log("JuntAI chat script loaded.");
+
+
     const chatInput = document.getElementById('chatInput');
     const consultaForm = document.getElementById('consultaForm');
     const chatMessages = document.getElementById('chatMessages');
-
-    // Referencias al modal de feedback
-    const feedbackModal = document.getElementById('feedbackModal');
-    const closeFeedbackModal = document.getElementById('closeFeedbackModal');
-    const feedbackGotItBtn = document.getElementById('feedbackGotItBtn');
-    const feedbackMoreInfoBtn = document.getElementById('feedbackMoreInfoBtn');
-
-    // Referencias a los botones de cámara y micrófono
     const cameraBtn = document.getElementById('cameraBtn');
     const microphoneBtn = document.getElementById('microphoneBtn');
 
-    // Referencias al nuevo modal de privacidad
+    // Modals
+    const feedbackModal = document.getElementById('feedbackModal');
     const privacyModal = document.getElementById('privacyModal');
-    const closePrivacyModal = document.getElementById('closePrivacyModal');
-    const openPrivacyBtn = document.getElementById('openPrivacyBtn');
+
+    // Privacy toggles
     const voiceAnalysisToggle = document.getElementById('voiceAnalysisToggle');
     const facialAnalysisToggle = document.getElementById('facialAnalysisToggle');
-    const savePrivacyBtn = document.getElementById('savePrivacyBtn');
 
-    // --- Variables de estado de privacidad (simuladas) ---
-    // Usaremos localStorage para simular persistencia
-    let isVoiceAnalysisEnabled = localStorage.getItem('voiceAnalysisEnabled') === 'true';
-    let isFacialAnalysisEnabled = localStorage.getItem('facialAnalysisEnabled') === 'true';
+    // Load privacy settings from localStorage or set defaults
+    let voiceAnalysisEnabled = localStorage.getItem('voiceAnalysisEnabled') === 'true';
+    let facialAnalysisEnabled = localStorage.getItem('facialAnalysisEnabled') === 'true';
 
-    // Inicializar toggles con los valores guardados
-    voiceAnalysisToggle.checked = isVoiceAnalysisEnabled;
-    facialAnalysisToggle.checked = isFacialAnalysisEnabled;
+    // Set initial toggle states
+    if (voiceAnalysisToggle) voiceAnalysisToggle.checked = voiceAnalysisEnabled;
+    if (facialAnalysisToggle) facialAnalysisToggle.checked = facialAnalysisEnabled;
 
 
-    // --- Funciones de Modales ---
-    function showModal(modalElement) {
-        modalElement.style.display = 'block';
-    }
 
-    function hideModal(modalElement) {
-        modalElement.style.display = 'none';
-    }
-
-    // --- Lógica del Modal de Feedback ---
-    window.triggerFeedback = function(type = 'general') {
-        showModal(feedbackModal);
-        // Aquí podrías personalizar el contenido del modal si tuvieras más tipos
-    };
-
-    closeFeedbackModal.addEventListener('click', () => hideModal(feedbackModal));
-    feedbackGotItBtn.addEventListener('click', () => hideModal(feedbackModal));
-    feedbackMoreInfoBtn.addEventListener('click', () => {
-        // Enlace a recurso externo sobre depresión/ansiedad/salud mental
-        window.open('https://www.who.int/es/news-room/fact-sheets/detail/depression', '_blank');
-        hideModal(feedbackModal);
-    });
-
-    // --- Lógica del Modal de Privacidad ---
-    // Mostrar modal de privacidad al cargar la página si no se ha configurado antes
-    if (!localStorage.getItem('privacyConfigured')) {
-        showModal(privacyModal);
-    }
-
-    openPrivacyBtn.addEventListener('click', () => showModal(privacyModal));
-    closePrivacyModal.addEventListener('click', () => hideModal(privacyModal));
-
-    savePrivacyBtn.addEventListener('click', () => {
-        isVoiceAnalysisEnabled = voiceAnalysisToggle.checked;
-        isFacialAnalysisEnabled = facialAnalysisToggle.checked;
-
-        // Guardar preferencias en localStorage
-        localStorage.setItem('voiceAnalysisEnabled', isVoiceAnalysisEnabled);
-        localStorage.setItem('facialAnalysisEnabled', isFacialAnalysisEnabled);
-        localStorage.setItem('privacyConfigured', 'true'); // Marca que la privacidad ya fue configurada
-
-        alert('Preferencias de privacidad guardadas.'); // Feedback simple
-        hideModal(privacyModal);
-        updateButtonStates(); // Actualizar el estado de los botones de cámara/micrófono
-    });
-
-    // --- Actualizar estado de los botones de cámara/micrófono ---
-    function updateButtonStates() {
-        if (cameraBtn) {
-            if (!isFacialAnalysisEnabled) {
-                cameraBtn.classList.add('disabled-button');
-                cameraBtn.title = 'Análisis facial desactivado en privacidad';
-                cameraBtn.disabled = true; // Deshabilitar el botón
-            } else {
-                cameraBtn.classList.remove('disabled-button');
-                cameraBtn.title = 'Activar cámara para análisis facial';
-                cameraBtn.disabled = false;
-            }
-        }
-        if (microphoneBtn) {
-            if (!isVoiceAnalysisEnabled) {
-                microphoneBtn.classList.add('disabled-button');
-                microphoneBtn.title = 'Análisis de voz desactivado en privacidad';
-                microphoneBtn.disabled = true; // Deshabilitar el botón
-            } else {
-                microphoneBtn.classList.remove('disabled-button');
-                microphoneBtn.title = 'Activar micrófono para análisis de voz';
-                microphoneBtn.disabled = false;
-            }
-        }
-    }
-    updateButtonStates(); // Llamar al cargar para establecer el estado inicial
-
-    // --- Listeners para los botones de cámara y micrófono ---
-    if (cameraBtn) {
-        cameraBtn.addEventListener('click', () => {
-            if (!isFacialAnalysisEnabled) {
-                alert('No puedes activar la cámara. El análisis facial está desactivado en tu configuración de privacidad.');
-            } else {
-                alert('Funcionalidad de cámara (con análisis facial) no implementada en esta versión.');
-                // Aquí iría la lógica real para activar la cámara
-            }
-        });
-    }
-
-    if (microphoneBtn) {
-        microphoneBtn.addEventListener('click', () => {
-            if (!isVoiceAnalysisEnabled) {
-                alert('No puedes activar el micrófono. El análisis de voz está desactivado en tu configuración de privacidad.');
-            } else {
-                alert('Funcionalidad de micrófono (con análisis de voz) no implementada en esta versión.');
-                // Aquí iría la lógica real para activar el micrófono
-            }
-        });
-    }
-
-
-    // --- Funciones para añadir mensajes al chat ---
-    function appendMessage(text, sender) {
+    function appendMessage(message, sender) {
         const messageElement = document.createElement('div');
-        messageElement.classList.add('chat-message', sender === 'user' ? 'user-message' : 'junt-ai-message');
+        messageElement.classList.add('chat-message', `${sender}-message`);
 
         const avatarElement = document.createElement('img');
         avatarElement.classList.add('message-avatar');
-        avatarElement.src = sender === 'user' ? 'assets/images/user-avatar.png' : 'assets/images/JUNTOLOGO.png';
-        avatarElement.alt = sender === 'user' ? 'User Avatar' : 'JuntAI Avatar';
+        avatarElement.alt = `${sender === 'user' ? 'User' : 'JuntAI'} Avatar`;
 
-        const textContentElement = document.createElement('div');
-        textContentElement.classList.add('message-text');
-        textContentElement.innerHTML = text; // Permite HTML en la respuesta (ej. enlaces, botones)
+        // Corrected paths for avatars
+        avatarElement.src = sender === 'user' ? 'public/assets/images/USERLOGO.png' : 'public/assets/images/JuntAI.jpg';
 
-        if (sender === 'user') {
-            messageElement.appendChild(textContentElement);
-            messageElement.appendChild(avatarElement);
-        } else {
-            messageElement.appendChild(avatarElement);
-            messageElement.appendChild(textContentElement);
-        }
+        const messageTextElement = document.createElement('div');
+        messageTextElement.classList.add('message-text');
+        messageTextElement.innerHTML = `<p>${message}</p>`;
+
+        messageElement.appendChild(avatarElement);
+        messageElement.appendChild(messageTextElement);
         chatMessages.appendChild(messageElement);
+
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    // --- Lógica de Respuestas de JuntAI ---
     function getJuntAIResponse(userMessage) {
-        let response = "JuntAI dice: No estoy seguro de cómo responder a eso. ¿Podrías intentar hacer otra consulta?";
         const lowerCaseMessage = userMessage.toLowerCase();
+        const sensitiveKeywords = [
+            'ansiedad', 'depresión', 'triste', 'angustia', 'preocupado',
+            'solo', 'sola', 'miedo', 'estrés', 'desesperado', 'desesperada',
+            'mal', 'desganado', 'bajo de ánimo', 'llorar'
+        ];
 
-        // Respuestas generales
-        if (lowerCaseMessage.includes("hola")) {
-            response = "Hola, te saluda JuntAI. Estoy aquí para poder resolver cada una de tus consultas.";
+        let response = "";
+        let showFeedbackModal = false;
+
+        for (const keyword of sensitiveKeywords) {
+            if (lowerCaseMessage.includes(keyword)) {
+                showFeedbackModal = true;
+                break;
+            }
+        }
+
+        if (showFeedbackModal) {
+            setTimeout(() => feedbackModal.style.display = 'block', 700);
+            return "Entiendo que puedas estar sintiendo algo difícil. Recuerda que no estás solo/a. ¿Hay algo más en lo que pueda ayudarte?";
+        }
+
+        // Consolidated responses
+        if (lowerCaseMessage.includes("hola") || lowerCaseMessage.includes("saludos")) {
+            response = "¡Hola! Te saluda JuntAI. Estoy aquí para poder resolver cada una de tus consultas.";
         } else if (lowerCaseMessage.includes("gracias")) {
             response = "De nada. No dudes en consultarme cualquier otra duda que tengas.";
-        }
-        // Respuestas de salud mental, ansiedad, depresión con feedback mejorado
-        else if (lowerCaseMessage.includes("ansiedad") || lowerCaseMessage.includes("sintiendo ansioso") || lowerCaseMessage.includes("ataque de panico") || lowerCaseMessage.includes("nervioso")) {
-            // Feedback visual claro: mensaje directo y opciones.
-            response = `**¡Detectamos señales de ansiedad en tu mensaje!** Entiendo que te sientes así. Es importante reconocer estos sentimientos. Algunas estrategias que pueden ayudarte son la respiración profunda, la meditación o buscar un lugar tranquilo. Si necesitas más apoyo, estamos aquí.
-            <div class="feedback-options">
-                <button class="feedback-button" onclick="window.open('https://www.paho.org/es/temas/ansiedad', '_blank')">Más sobre ansiedad (OPS/OMS)</button>
-                <button class="feedback-button" onclick="triggerFeedback('ansiedad')">Necesito más ayuda</button>
-            </div>`;
-        } else if (lowerCaseMessage.includes("depresion") || lowerCaseMessage.includes("triste") || lowerCaseMessage.includes("desanimado") || lowerCaseMessage.includes("sin energia") || lowerCaseMessage.includes("no quiero hacer nada")) {
-            // Feedback visual claro: mensaje directo y opciones.
-            response = `**¡Detectamos señales de depresión en tu mensaje!** Lamento mucho que te sientas así. La depresión es una condición seria que requiere atención. Es fundamental buscar el apoyo de un profesional de la salud mental. Recuerda que no estás solo/a.
-            <div class="feedback-options">
-                <button class="feedback-button" onclick="window.open('https://www.who.int/es/news-room/fact-sheets/detail/depression', '_blank')">Más sobre depresión (OMS)</button>
-                <button class="feedback-button" onclick="triggerFeedback('depresion')">Necesito más ayuda</button>
-            </div>`;
-        } else if (lowerCaseMessage.includes("salud mental") || lowerCaseMessage.includes("bienestar emocional") || lowerCaseMessage.includes("cuidar mi mente")) {
-            response = `Cuidar tu salud mental es tan importante como la física. Actividades como la meditación, pasar tiempo al aire libre, mantener conexiones sociales y una buena higiene del sueño contribuyen a tu bienestar emocional. Si sientes que lo necesitas, no dudes en buscar apoyo profesional.
-            <div class="feedback-options">
-                <button class="feedback-button" onclick="window.open('https://www.minsa.gob.pe/recursos/salud_mental.html', '_blank')">Recursos de Salud Mental (MINSA)</button>
-                <button class="feedback-button" onclick="triggerFeedback('general')">¿Cómo puedo mejorar?</button>
-            </div>`;
+        } else if (lowerCaseMessage.includes("ansiedad") || lowerCaseMessage.includes("ataque de panico") || lowerCaseMessage.includes("nervioso")) {
+            response = `**¡Detectamos señales de ansiedad!** Entiendo que te sientes así. Respiración profunda, meditación o buscar un lugar tranquilo pueden ayudarte. Más en <a href="https://www.paho.org/es/temas/ansiedad" target="_blank" style="color: #307FD9; text-decoration: underline;">OPS/OMS</a>.`;
+        } else if (lowerCaseMessage.includes("depresion") || lowerCaseMessage.includes("triste") || lowerCaseMessage.includes("desanimado")) {
+            response = `**¡Detectamos señales de depresión!** Lamento que te sientas así. Busca apoyo profesional. Más en <a href="https://www.who.int/es/news-room/fact-sheets/detail/depression" target="_blank" style="color: #307FD9; text-decoration: underline;">OMS</a>.`;
+        } else if (lowerCaseMessage.includes("salud mental") || lowerCaseMessage.includes("bienestar emocional")) {
+            response = `Cuidar tu salud mental es clave. Meditación, aire libre, conexiones sociales y buen sueño ayudan. Recursos en <a href="https://www.minsa.gob.pe/recursos/salud_mental.html" target="_blank" style="color: #307FD9; text-decoration: underline;">MINSA</a>.`;
         } else if (lowerCaseMessage.includes("ayuda profesional") || lowerCaseMessage.includes("terapia") || lowerCaseMessage.includes("psicologo")) {
-            response = `Buscar ayuda profesional es un paso valiente y muy efectivo. Un psicólogo o terapeuta puede ofrecerte herramientas y un espacio seguro para explorar tus pensamientos y emociones. Te animo a dar ese paso.
-            <div class="feedback-options">
-                <button class="feedback-button" onclick="triggerFeedback('profesional')">Encontrar un profesional</button>
-            </div>`;
-        }
-        // Respuestas de temas de salud específicos
-        else if (lowerCaseMessage.includes("comer sano") || lowerCaseMessage.includes("dieta") || lowerCaseMessage.includes("alimentacion")) {
-            response = "Una alimentación balanceada es clave para tu bienestar. Prioriza frutas, verduras, proteínas magras y granos integrales. Evita el exceso de azúcares y grasas saturadas.";
-        } else if (lowerCaseMessage.includes("ejercicio") || lowerCaseMessage.includes("actividad fisica") || lowerCaseMessage.includes("deporte")) {
-            response = "El ejercicio regular mejora tu estado de ánimo y salud física. Intenta al menos 30 minutos de actividad moderada la mayoría de los días de la semana.";
+            response = `Buscar ayuda profesional es un paso valiente. Un terapeuta puede darte herramientas. Te animo a dar ese paso.`;
+        } else if (lowerCaseMessage.includes("comer sano") || lowerCaseMessage.includes("alimentacion")) {
+            response = "Una alimentación balanceada es clave. Prioriza frutas, verduras, proteínas magras y granos integrales. Evita azúcares y grasas saturadas.";
+        } else if (lowerCaseMessage.includes("ejercicio") || lowerCaseMessage.includes("actividad fisica")) {
+            response = "El ejercicio mejora tu ánimo. Intenta al menos 30 minutos de actividad moderada la mayoría de los días.";
         } else if (lowerCaseMessage.includes("sueño") || lowerCaseMessage.includes("dormir") || lowerCaseMessage.includes("insomnio")) {
-            response = "Para mejorar tu sueño, establece un horario regular, crea un ambiente oscuro y tranquilo, y evita cafeína y pantallas antes de acostarte.";
+            response = "Para mejorar tu sueño, establece un horario regular, ambiente oscuro y evita cafeína/pantallas antes de dormir.";
         } else if (lowerCaseMessage.includes("estres") || lowerCaseMessage.includes("relajacion")) {
-            response = "Manejar el estrés es vital. Prueba técnicas de relajación como la respiración profunda, la meditación o el yoga. También ayuda organizar tus tareas y establecer límites.";
-        }
-        // Noticias
-        else if (lowerCaseMessage.includes("noticias sobre depresión") || lowerCaseMessage.includes("noticias salud emocional")) {
+            response = "Manejar el estrés es vital. Prueba respiración profunda, meditación o yoga. Organiza tareas y establece límites.";
+        } else if (lowerCaseMessage.includes("noticias")) {
             response = `
                 <div>
                     <p>Te comparto una noticia relevante sobre salud mental:</p>
@@ -215,40 +104,163 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p>En esta noticia, el MINSA participó en la inauguración destacando la importancia de la salud pública y el compromiso con el bienestar ciudadano.</p>
                 </div>
             `;
-        }
-        // Consulta general de salud
-        else if (lowerCaseMessage.includes("salud") || lowerCaseMessage.includes("bienestar")) {
+        } else if (lowerCaseMessage.includes("salud") || lowerCaseMessage.includes("bienestar")) {
             response = "La salud integral abarca mente y cuerpo. Estoy aquí para ofrecerte información general y recordarte la importancia de un estilo de vida saludable.";
+        } else {
+            response = "Lo siento, no entiendo tu consulta. Intenta preguntar sobre temas de bienestar, autocuidado o salud mental.";
         }
-
         return response;
     }
 
-    // --- Funcionalidad principal de envío de mensajes de texto ---
-    consultaForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // Evita que la página se recargue
+    // --- Event Handlers ---
 
+    function handleSendMessage() {
         const userMessage = chatInput.value.trim();
-        if (userMessage === '') return; // No enviar mensajes vacíos
+        if (userMessage === '') return;
 
         appendMessage(userMessage, 'user');
-        chatInput.value = ''; // Limpiar el input
-        chatInput.style.height = 'auto'; // Restablecer altura del textarea
+        chatInput.value = '';
+        chatInput.style.height = 'auto'; // Reset textarea height
 
-        // Simular la respuesta de JuntAI después de un breve retraso
         setTimeout(() => {
             const juntAIResponse = getJuntAIResponse(userMessage);
             appendMessage(juntAIResponse, 'junt-ai');
-        }, 500); // Retraso de 0.5 segundos
-    });
+        }, 700);
+    }
 
-    // Ajustar altura del textarea automáticamente
-    chatInput.addEventListener('input', () => {
+    if (consultaForm) {
+        consultaForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            handleSendMessage();
+        });
+    }
+
+    if (chatInput) {
+        chatInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                handleSendMessage();
+            }
+        });
+        chatInput.addEventListener('input', function () {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+        // Initial height adjustment for chatInput
         chatInput.style.height = 'auto';
         chatInput.style.height = (chatInput.scrollHeight) + 'px';
+    }
+
+    let mediaStream = null;
+
+    async function toggleCamera() {
+        if (!facialAnalysisEnabled) {
+            alert('Análisis facial está desactivado. Habilítalo en Privacidad.');
+            return;
+        }
+        if (mediaStream && mediaStream.getVideoTracks().length > 0) {
+            stopMediaStream();
+            alert('Cámara deshabilitada.');
+        } else {
+            try {
+                mediaStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                alert('Cámara y micrófono habilitados (simulado).');
+            } catch (err) {
+                console.error('Error accessing camera/mic:', err);
+                alert('No se pudo acceder a la cámara o el micrófono. Permisos denegados o no disponibles.');
+            }
+        }
+    }
+
+    async function toggleMicrophone() {
+        if (!voiceAnalysisEnabled) {
+            alert('Análisis de voz está desactivado. Habilítalo en Privacidad.');
+            return;
+        }
+        if (mediaStream && mediaStream.getAudioTracks().length > 0) {
+            stopMediaStream();
+            alert('Micrófono deshabilitado.');
+        } else {
+            try {
+                mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                alert('Micrófono habilitado (simulado).');
+            } catch (err) {
+                console.error('Error accessing microphone:', err);
+                alert('No se pudo acceder al micrófono. Permisos denegados o no disponibles.');
+            }
+        }
+    }
+
+    function stopMediaStream() {
+        if (mediaStream) {
+            mediaStream.getTracks().forEach(track => track.stop());
+            mediaStream = null;
+            console.log("Media streams stopped.");
+        }
+    }
+
+    if (cameraBtn) cameraBtn.addEventListener('click', toggleCamera);
+    if (microphoneBtn) microphoneBtn.addEventListener('click', toggleMicrophone);
+
+    // --- Modal Management ---
+
+    function openModal(modalElement) {
+        modalElement.style.display = 'flex'; // Use flex to center
+    }
+
+    function closeModal(modalElement) {
+        modalElement.style.display = 'none';
+        // Stop media streams if privacy toggles were disabled on closing privacy modal
+        if (modalElement.id === 'privacyModal' && (!voiceAnalysisEnabled || !facialAnalysisEnabled)) {
+            stopMediaStream();
+        }
+    }
+
+    // Feedback Modal Events
+    const closeFeedbackModalBtn = document.getElementById('closeFeedbackModal');
+    const feedbackGotItBtn = document.getElementById('feedbackGotItBtn');
+    const feedbackMoreInfoBtn = document.getElementById('feedbackMoreInfoBtn');
+
+    if (closeFeedbackModalBtn) closeFeedbackModalBtn.addEventListener('click', () => closeModal(feedbackModal));
+    if (feedbackGotItBtn) feedbackGotItBtn.addEventListener('click', () => closeModal(feedbackModal));
+    if (feedbackMoreInfoBtn) {
+        feedbackMoreInfoBtn.addEventListener('click', () => {
+            window.open('https://www.gob.pe/saludmental', '_blank');
+            closeModal(feedbackModal);
+        });
+    }
+
+    // Privacy Modal Events
+    const openPrivacyBtn = document.getElementById('openPrivacyBtn');
+    const closePrivacyModalBtn = document.getElementById('closePrivacyModal');
+    const savePrivacyBtn = document.getElementById('savePrivacyBtn');
+
+    if (openPrivacyBtn) {
+        openPrivacyBtn.addEventListener('click', () => {
+            // Update toggles state when opening
+            if (voiceAnalysisToggle) voiceAnalysisToggle.checked = voiceAnalysisEnabled;
+            if (facialAnalysisToggle) facialAnalysisToggle.checked = facialAnalysisEnabled;
+            openModal(privacyModal);
+        });
+    }
+    if (closePrivacyModalBtn) closePrivacyModalBtn.addEventListener('click', () => closeModal(privacyModal));
+    if (savePrivacyBtn) {
+        savePrivacyBtn.addEventListener('click', () => {
+            voiceAnalysisEnabled = voiceAnalysisToggle ? voiceAnalysisToggle.checked : voiceAnalysisEnabled;
+            facialAnalysisEnabled = facialAnalysisToggle ? facialAnalysisToggle.checked : facialAnalysisEnabled;
+
+            localStorage.setItem('voiceAnalysisEnabled', voiceAnalysisEnabled);
+            localStorage.setItem('facialAnalysisEnabled', facialAnalysisEnabled);
+
+            console.log('Privacy Preferences Saved:', { voiceAnalysisEnabled, facialAnalysisEnabled });
+            alert('Preferencias de privacidad guardadas.');
+            closeModal(privacyModal);
+        });
+    }
+
+    // Close modals on outside click
+    window.addEventListener('click', (event) => {
+        if (event.target == feedbackModal) closeModal(feedbackModal);
+        if (event.target == privacyModal) closeModal(privacyModal);
     });
-
-    // Asegurarse de que el chat se desplace al cargar
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-
 });
