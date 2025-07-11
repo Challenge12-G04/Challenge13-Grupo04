@@ -149,8 +149,8 @@ main {
 }
 
 .descubre1 .subti {
-    display:flexbox;
-    margin-top: 0px;
+    display:flex;
+    margin-top: 0;
     margin-bottom: 200px;
     font-size: 18px;
     margin-left: 50px;
@@ -161,7 +161,7 @@ main {
     text-align: left;
     font-size: 24px;
     margin-top: 90px;
-    margin-left: 0px;
+    margin-left: 0;
     margin-bottom: 90px;
     width: 200px;
     margin-right: 20px;
