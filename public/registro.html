@@ -28,8 +28,7 @@
 
   </section>
   <section class="registro-datos">
-    <form>
-      <label for="tel">NUMERO DE CELULAR</label>
+    <form id="registrationForm"> <label for="tel">NUMERO DE CELULAR</label>
       <input id="tel" type="tel" required>
       <label for="dni">DNI</label>
       <input id="dni" type="number" required>
@@ -39,6 +38,10 @@
       <input id="contra" type="password" required>
       <label for="repit">REPITA SU CONTRASEÑA</label>
       <input id="repit" type="password" required>
+
+      <div id="formMessageContainer" class="message-container">
+        <p id="formMessage" class="form-message" style="display: none;"></p>
+      </div>
 
       <button type="submit">
         <a href="iniciarsesion.html">REGISTRATE</a>

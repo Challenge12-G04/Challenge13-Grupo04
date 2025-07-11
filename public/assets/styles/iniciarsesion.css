@@ -42,77 +42,210 @@ header nav ul li img{
     border-radius: 50%; /* Rounded logo */
 }
 
-/* Sección de Inicio de Sesión */
+/* Botón "Tu Cuenta" - asumiendo que lo tienes en otras páginas */
+.boton-cuenta a {
+    background-color: #307FD9;
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.boton-cuenta a:hover,
+.boton-cuenta a:focus {
+    background-color: #235fa7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+}
+
+/* Main */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
 .inicio-titulo {
     text-align: center;
-    margin-top: 30px;
+    margin-bottom: 40px;
 }
 
 .inicio-titulo h1 {
-    font-size: 28px;
-    color: #0D3A45;
+    color: #307FD9;
+    font-size: 3em;
+    margin-bottom: 10px;
 }
 
-
+.inicio-titulo h2 {
+    color: #555;
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
 
 .inicio-titulo button {
-    background-color: #256BBD;
-    color: white;
+    background-color: #028490; /* Verde azulado */
     border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
+    padding: 12px 30px;
+    border-radius: 25px;
     cursor: pointer;
-    font-size: 14px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
 }
 
 .inicio-titulo button a {
     color: white;
     text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    display: block; /* Para que el padding afecte a todo el botón */
 }
 
-/* Sección del formulario */
+.inicio-titulo button:hover,
+.inicio-titulo button:focus {
+    background-color: #04A6B5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
 .inicio-datos {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #FFFFFF;
+    background-color: #fff;
+    padding: 40px 30px;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.inicio-datos form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre elementos del formulario */
 }
 
 .inicio-datos label {
-    font-size: 16px;
-    color: #333;
-    display: block;
-    margin: 10px 0 5px;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: bold;
 }
 
-.inicio-datos input[type="caracter"],
-.inicio-datos input[type="password"] {
-    width: 95%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    margin-bottom: 10px;
+.inicio-datos input {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    width: calc(100% - 30px); /* Para compensar el padding */
+    box-sizing: border-box; /* Incluir padding y border en el ancho total */
 }
 
-.inicio-datos button[type="submit"] {
-    background-color: #256BBD;
+.inicio-datos input:focus {
+    outline: none;
+    border-color: #307FD9;
+    box-shadow: 0 0 0 3px rgba(48, 127, 217, 0.2);
+}
+
+.inicio-datos button[type="submit"],
+.inicio-datos button[type="button"] { /* Estilo para todos los botones del formulario */
+    background-color: #307FD9;
     color: white;
     border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
+    padding: 12px 25px;
+    border-radius: 25px;
     cursor: pointer;
-    width: 100%;
-}
-a{
-    color: white;
-    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 15px; /* Espacio antes del botón */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
 }
 
-/* Estilos para el pie de página */
+.inicio-datos button[type="submit"]:hover,
+.inicio-datos button[type="button"]:hover,
+.inicio-datos button[type="submit"]:focus,
+.inicio-datos button[type="button"]:focus {
+    background-color: #235fa7;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --- NUEVOS ESTILOS PARA MENSAJES DE ERROR Y VERIFICACIÓN --- */
+.error-message-container {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    min-height: 40px; /* Asegura espacio aunque no haya error */
+    text-align: center;
+}
+
+.error-message {
+    color: #D9534F; /* Rojo para errores */
+    font-size: 0.95em;
+    font-weight: bold;
+    background-color: #f8d7da; /* Fondo suave para el error */
+    border: 1px solid #f5c6cb;
+    padding: 8px 12px;
+    border-radius: 5px;
+    animation: fadeInError 0.4s ease-out;
+}
+
+.retry-attempts {
+    color: #F0AD4E; /* Naranja para advertencia */
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.retry-attempts #attemptsCount {
+    font-weight: bold;
+    color: #D9534F;
+}
+
+.verification-section {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.verification-text {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.send-code-options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.send-code-button {
+    background-color: #028490 !important; /* Verde azulado, !important para sobreescribir el estilo general */
+    padding: 10px 20px !important;
+    font-size: 0.95em !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 0 !important; /* Elimina el margen superior extra */
+}
+
+.send-code-button i {
+    font-size: 1.1em;
+}
+
+.send-code-button:hover {
+    background-color: #04A6B5 !important;
+}
+
+/* Animación para el mensaje de error */
+@keyframes fadeInError {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 /* Footer */
 footer {
     background-color: #D2D240; /* Amarillo mostaza */
